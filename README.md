@@ -2,8 +2,6 @@
 
 CS1D European vacation
 
-https://placehold.it/150/ffffff/ff0000?text=hello
-
 ![alt text](https://i.postimg.cc/vTZDYTky/magmar.png)
 
 
