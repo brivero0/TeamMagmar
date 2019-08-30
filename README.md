@@ -1,5 +1,5 @@
 # TeamMagmar
-<p style="color:red">CS1D European vacation
+ <font color="red">CS1D European vacation</font> 
 
 
 ![alt text](https://i.postimg.cc/vTZDYTky/magmar.png)
