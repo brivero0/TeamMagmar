@@ -1,6 +1,6 @@
 # TeamMagmar
- <font color="red">CS1D European vacation</font> 
 
+- ![#f03c15](https://placehold.it/15/f03c15/000000?CS1D European vacation=+) `#f03c15`
 
 ![alt text](https://i.postimg.cc/vTZDYTky/magmar.png)
 
