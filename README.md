@@ -9,3 +9,6 @@ CS1D European vacation
 
 
 [![Project Magmar Requirements](https://img.shields.io/badge/Doc-Requirements-9cf)](https://docs.google.com/document/d/1qZDJcIs2vRNuiRiVrOTQCtlKkLunnrothJ01GGq9iok/edit?usp=sharing)
+
+
+[![Agile Tool](https://img.shields.io/badge/Doc-Agile%20Tool-blueviolet)](https://zube.io/cs1c-5/cs1d-european-vacation/w/workspace-1/kanban)
