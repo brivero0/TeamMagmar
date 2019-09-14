@@ -277,7 +277,11 @@ border-radius: 5px;</string>
     <pixmap resource="resource.qrc">:/images/bluesandshrew.png</pixmap>
    </property>
   </widget>
+<<<<<<< HEAD
   <widget class="QLabel" name="label_status">
+=======
+  <widget class="QLabel" name="label">
+>>>>>>> e0d4c4c6c95c50e37365e11f76e6737aa7763473
    <property name="geometry">
     <rect>
      <x>338</x>
@@ -294,7 +298,11 @@ border-radius: 5px;</string>
   <zorder>exitProgramButton</zorder>
   <zorder>nameLabel</zorder>
   <zorder>loginGroupBox</zorder>
+<<<<<<< HEAD
   <zorder>label_status</zorder>
+=======
+  <zorder>label</zorder>
+>>>>>>> e0d4c4c6c95c50e37365e11f76e6737aa7763473
  </widget>
  <resources>
   <include location="resource.qrc"/>
