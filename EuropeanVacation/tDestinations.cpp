@@ -30,6 +30,8 @@ void tDestinations::tDestinations::defualtReset()
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Starting location"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Destination"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Distance(km)"));
-    //model.
+
+    ui->tDestinationOptionsTV->verticalHeader()->setVisible(false);
     ui->tDestinationOptionsTV->setModel(model);
+    ui->tDestinationOptionsTV->setCornerButtonEnabled(true);
 }

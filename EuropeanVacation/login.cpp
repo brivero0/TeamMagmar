@@ -61,31 +61,48 @@ void login::connectToDB()
  ***************************************************************************/
 void login::on_loginTravelerButton_clicked()
 {
-    connectToDB();
-    travelerWindow = new traveler();
-    travelerWindow->show();
-    //this->close();
-}
+    QString username;
+    QString password;
 
-/****************************************************************************
- * METHOD - on_loginAdminButton_clicked
- * --------------------------------------------------------------------------
- * On valid username/password for admin, the admin window is opened.
- * Connection to database is checked.
- * --------------------------------------------------------------------------
- * PRE-CONDITIONS
- *      No parameters are required.
- *
- * POST-CONDITIONS
- *      ==> Returns nothing.
- *      ==> Displays Admin Window on valid login/password
- ***************************************************************************/
-void login::on_loginAdminButton_clicked()
-{
-    connectToDB();
-    adminWindow = new admin();
-    adminWindow->show();
-    //this->close();
+        username = ui->usernameLineEdit->text();
+        password = ui->passwordLineEdit->text();
+
+    if(username == "traveler" && password == "123")
+    {
+        ui -> passwordLineEdit -> setText("");
+        ui -> usernameLineEdit -> setText("");
+<<<<<<< HEAD
+=======
+        ui -> label ->setText("");
+>>>>>>> e0d4c4c6c95c50e37365e11f76e6737aa7763473
+        connectToDB();
+        travelerWindow = new traveler();
+        travelerWindow->show();
+        //this->close();
+    }
+    else if(username == "admin" && password == "456")
+    {
+        ui -> passwordLineEdit -> setText("");
+        ui -> usernameLineEdit -> setText("");
+<<<<<<< HEAD
+=======
+        ui -> label ->setText("");
+>>>>>>> e0d4c4c6c95c50e37365e11f76e6737aa7763473
+        connectToDB();
+        adminWindow = new admin();
+        adminWindow->show();
+        //this->close();
+    }
+    else
+    {
+<<<<<<< HEAD
+        ui -> label_status ->setText("Invalid Username or Password");
+=======
+        ui -> label ->setText("Invalid Username or Password");
+>>>>>>> e0d4c4c6c95c50e37365e11f76e6737aa7763473
+        ui -> passwordLineEdit -> setText("");
+        ui -> usernameLineEdit -> setText("");
+    }
 }
 
 /****************************************************************************

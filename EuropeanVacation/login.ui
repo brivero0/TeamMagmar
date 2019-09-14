@@ -244,52 +244,7 @@ border-width: 2px;
 border-radius: 5px;</string>
          </property>
          <property name="text">
-          <string>Traveler Login</string>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="loginAdminButton">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>125</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>125</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="toolTip">
-          <string extracomment="hi"/>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color:#ffa500;
-border-style: solid;
-border-color: black;
-border-width: 2px;
-border-radius: 5px;</string>
-         </property>
-         <property name="text">
-          <string>Admin Login</string>
+          <string>Login</string>
          </property>
          <property name="flat">
           <bool>false</bool>
@@ -322,10 +277,32 @@ border-radius: 5px;</string>
     <pixmap resource="resource.qrc">:/images/bluesandshrew.png</pixmap>
    </property>
   </widget>
+<<<<<<< HEAD
+  <widget class="QLabel" name="label_status">
+=======
+  <widget class="QLabel" name="label">
+>>>>>>> e0d4c4c6c95c50e37365e11f76e6737aa7763473
+   <property name="geometry">
+    <rect>
+     <x>338</x>
+     <y>239</y>
+     <width>161</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>sandShrewPic</zorder>
   <zorder>exitProgramButton</zorder>
   <zorder>nameLabel</zorder>
   <zorder>loginGroupBox</zorder>
+<<<<<<< HEAD
+  <zorder>label_status</zorder>
+=======
+  <zorder>label</zorder>
+>>>>>>> e0d4c4c6c95c50e37365e11f76e6737aa7763473
  </widget>
  <resources>
   <include location="resource.qrc"/>
