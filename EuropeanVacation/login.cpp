@@ -71,10 +71,9 @@ void login::on_loginTravelerButton_clicked()
     {
         ui -> passwordLineEdit -> setText("");
         ui -> usernameLineEdit -> setText("");
-<<<<<<< HEAD
-=======
-        ui -> label ->setText("");
->>>>>>> e0d4c4c6c95c50e37365e11f76e6737aa7763473
+
+        ui -> label_status ->setText("");
+
         connectToDB();
         travelerWindow = new traveler();
         travelerWindow->show();
@@ -84,10 +83,9 @@ void login::on_loginTravelerButton_clicked()
     {
         ui -> passwordLineEdit -> setText("");
         ui -> usernameLineEdit -> setText("");
-<<<<<<< HEAD
-=======
-        ui -> label ->setText("");
->>>>>>> e0d4c4c6c95c50e37365e11f76e6737aa7763473
+
+        ui -> label_status ->setText("");
+
         connectToDB();
         adminWindow = new admin();
         adminWindow->show();
@@ -95,11 +93,8 @@ void login::on_loginTravelerButton_clicked()
     }
     else
     {
-<<<<<<< HEAD
+
         ui -> label_status ->setText("Invalid Username or Password");
-=======
-        ui -> label ->setText("Invalid Username or Password");
->>>>>>> e0d4c4c6c95c50e37365e11f76e6737aa7763473
         ui -> passwordLineEdit -> setText("");
         ui -> usernameLineEdit -> setText("");
     }
