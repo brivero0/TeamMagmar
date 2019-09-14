@@ -22,6 +22,9 @@ public:
     explicit tFoods(QWidget *parent = nullptr);
     ~tFoods();
 
+    void defaultReset();
+
+
 private:
     Ui::tFoods *ui;
 

@@ -28,7 +28,7 @@ bool databaseManger::openDB()
         // Create database object
         database = QSqlDatabase::addDatabase("QSQLITE");
         // Create database connection
-        database.setDatabaseName("BulkClubDB.db");
+        database.setDatabaseName("CS1D_TEAM_MAGMAR_DB.db");
 
         // Check if database was successfully opened
         if(!database.open())

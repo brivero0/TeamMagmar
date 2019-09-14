@@ -52,6 +52,16 @@
     <string>Traveler's Food Options Widget</string>
    </property>
   </widget>
+  <widget class="QTableView" name="tFoodOptionsTV">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>311</width>
+     <height>221</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
