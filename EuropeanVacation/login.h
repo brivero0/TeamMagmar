@@ -27,8 +27,6 @@ public:
 private slots:
     void on_loginTravelerButton_clicked();
 
-    void on_loginAdminButton_clicked();
-
     void on_exitProgramButton_clicked();
 
 private:

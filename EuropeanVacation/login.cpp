@@ -61,31 +61,38 @@ void login::connectToDB()
  ***************************************************************************/
 void login::on_loginTravelerButton_clicked()
 {
-    connectToDB();
-    travelerWindow = new traveler();
-    travelerWindow->show();
-    //this->close();
-}
+    QString username;
+    QString password;
 
-/****************************************************************************
- * METHOD - on_loginAdminButton_clicked
- * --------------------------------------------------------------------------
- * On valid username/password for admin, the admin window is opened.
- * Connection to database is checked.
- * --------------------------------------------------------------------------
- * PRE-CONDITIONS
- *      No parameters are required.
- *
- * POST-CONDITIONS
- *      ==> Returns nothing.
- *      ==> Displays Admin Window on valid login/password
- ***************************************************************************/
-void login::on_loginAdminButton_clicked()
-{
-    connectToDB();
-    adminWindow = new admin();
-    adminWindow->show();
-    //this->close();
+        username = ui->usernameLineEdit->text();
+        password = ui->passwordLineEdit->text();
+
+    if(username == "traveler" && password == "123")
+    {
+        ui -> passwordLineEdit -> setText("");
+        ui -> usernameLineEdit -> setText("");
+        ui -> label ->setText("");
+        connectToDB();
+        travelerWindow = new traveler();
+        travelerWindow->show();
+        //this->close();
+    }
+    else if(username == "admin" && password == "456")
+    {
+        ui -> passwordLineEdit -> setText("");
+        ui -> usernameLineEdit -> setText("");
+        ui -> label ->setText("");
+        connectToDB();
+        adminWindow = new admin();
+        adminWindow->show();
+        //this->close();
+    }
+    else
+    {
+        ui -> label ->setText("Invalid Username or Password");
+        ui -> passwordLineEdit -> setText("");
+        ui -> usernameLineEdit -> setText("");
+    }
 }
 
 /****************************************************************************
