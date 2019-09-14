@@ -52,6 +52,16 @@
     <string>Traveler's Destinations Widget</string>
    </property>
   </widget>
+  <widget class="QTableView" name="tDestinationOptionsTV">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>351</width>
+     <height>331</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
