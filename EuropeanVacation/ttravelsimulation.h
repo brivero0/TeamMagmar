@@ -15,6 +15,9 @@ public:
     explicit tTravelSimulation(QWidget *parent = nullptr);
     ~tTravelSimulation();
 
+private slots:
+    void on_exitSimulationButton_clicked();
+
 private:
     Ui::tTravelSimulation *ui;
 

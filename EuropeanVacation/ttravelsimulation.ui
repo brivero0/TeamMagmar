@@ -26,6 +26,19 @@
     <string>BadAss Travel simulation!!!!!!!</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="exitSimulationButton">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>250</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel Simulation?</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
