@@ -32,8 +32,15 @@ void tFoods::tFoods::defaultReset()
     model->setQuery("SELECT DISTINCT City "
                     "FROM Food ");
 
+
+    table->setHeaderData(0, Qt::Horizontal, QObject::tr("Food Name"));
+    table->setHeaderData(1, Qt::Horizontal, QObject::tr("Name"));
+
+
+    ui->tFoodOptionsTV->verticalHeader()->setVisible(false);
     ui->tFoodOptionsTV->setModel(table);
     ui->tCityList->setModel(model);
+    ui->tFoodOptionsTV->setCornerButtonEnabled(true);
 
 }
 

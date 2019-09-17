@@ -21,8 +21,11 @@ public:
     explicit tDestinations(QWidget *parent = nullptr);
     ~tDestinations();
 
+    void defualtReset();
+
 private:
     Ui::tDestinations *ui;
+    QString startCity = "Paris";
 
     QSqlDatabase myDB; // Database object for database connection
 };
