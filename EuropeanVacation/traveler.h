@@ -7,6 +7,7 @@
 #include "tFoods.h"
 #include "tconfirmparis.h"
 #include "tconfirmcustom.h"
+#include "tconfirmlondon.h"
 
 namespace Ui {
 class traveler;
@@ -48,8 +49,9 @@ private:
     tDestinations tDestinationsWindow;
     tFoods        tFoodsWindow;
 
-    tConfirmParis * tConfirmWindow;
-    tConfirmCustom * tConfirmWindow2;
+    tConfirmParis  * tConfirmWindow;
+    tConfirmLondon * tConfirmWindow2;
+    tConfirmCustom * tConfirmWindow3;
 
 };
 

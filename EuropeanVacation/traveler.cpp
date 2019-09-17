@@ -4,6 +4,7 @@
 
 #include "tconfirmparis.h"
 #include "tconfirmcustom.h"
+#include "tconfirmlondon.h"
 
 // Default Constructor
 traveler::traveler(QWidget *parent) :
@@ -114,12 +115,12 @@ void traveler::on_SelectMagmarButton_clicked()
 
 void traveler::on_SelectMagmortarButton_clicked()
 {
-    tConfirmWindow2 = new tConfirmCustom();
+    tConfirmWindow2 = new tConfirmLondon();
     tConfirmWindow2->show();
 }
 
 void traveler::on_SelectShinyMagmarButton_clicked()
 {
-    tConfirmWindow2 = new tConfirmCustom();
-    tConfirmWindow2->show();
+    tConfirmWindow3 = new tConfirmCustom();
+    tConfirmWindow3->show();
 }
