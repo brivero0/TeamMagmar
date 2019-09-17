@@ -25,6 +25,9 @@ public:
     void defaultReset();
 
 
+private slots:
+    void on_tCityList_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::tFoods *ui;
 

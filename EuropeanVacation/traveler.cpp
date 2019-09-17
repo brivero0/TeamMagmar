@@ -2,9 +2,6 @@
 #include "ui_traveler.h"
 #include "login.h"
 
-#include "tconfirmparis.h"
-#include "tconfirmcustom.h"
-
 // Default Constructor
 traveler::traveler(QWidget *parent) :
     QWidget(parent),
@@ -96,30 +93,3 @@ void traveler::on_logoutButton_clicked()
     this->close();
 }
 
-
-void traveler::on_SelectMagbyButton_clicked()
-{
-
-    tConfirmWindow = new tConfirmParis();
-    tConfirmWindow->show();
-
-}
-
-void traveler::on_SelectMagmarButton_clicked()
-{
-
-    tConfirmWindow = new tConfirmParis();
-    tConfirmWindow->show();
-}
-
-void traveler::on_SelectMagmortarButton_clicked()
-{
-    tConfirmWindow2 = new tConfirmCustom();
-    tConfirmWindow2->show();
-}
-
-void traveler::on_SelectShinyMagmarButton_clicked()
-{
-    tConfirmWindow2 = new tConfirmCustom();
-    tConfirmWindow2->show();
-}

@@ -5,8 +5,6 @@
 
 #include "tDestinations.h"
 #include "tFoods.h"
-#include "tconfirmparis.h"
-#include "tconfirmcustom.h"
 
 namespace Ui {
 class traveler;
@@ -34,23 +32,11 @@ private slots:
     void on_logoutButton_clicked();
     //!< Traveler window closes
 
-    void on_SelectMagbyButton_clicked();
-
-    void on_SelectMagmarButton_clicked();
-
-    void on_SelectMagmortarButton_clicked();
-
-    void on_SelectShinyMagmarButton_clicked();
-
 private:
     Ui::traveler*ui;
 
     tDestinations tDestinationsWindow;
     tFoods        tFoodsWindow;
-
-    tConfirmParis * tConfirmWindow;
-    tConfirmCustom * tConfirmWindow2;
-
 };
 
 #endif // TRAVELER_H
