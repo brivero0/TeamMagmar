@@ -36,7 +36,8 @@ SOURCES += \
     aFoods.cpp \
     tconfirmparis.cpp \
     tconfirmcustom.cpp \
-    ttravelsimulation.cpp
+    ttravelsimulation.cpp \
+    tconfirmlondon.cpp
 
 
 HEADERS += \
@@ -50,7 +51,8 @@ HEADERS += \
     aFoods.h \
     tconfirmparis.h \
     tconfirmcustom.h \
-    ttravelsimulation.h
+    ttravelsimulation.h \
+    tconfirmlondon.h
 
 
 FORMS += \
@@ -63,7 +65,8 @@ FORMS += \
     aFoods.ui \
     tconfirmparis.ui \
     tconfirmcustom.ui \
-    ttravelsimulation.ui
+    ttravelsimulation.ui \
+    tconfirmlondon.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
