@@ -21,3 +21,9 @@ void tConfirmParis::on_startSimulationBtn1_clicked()
 
      this->close();
 }
+
+void tConfirmParis::on_cancelButton_clicked()
+{
+
+    this->close();
+}

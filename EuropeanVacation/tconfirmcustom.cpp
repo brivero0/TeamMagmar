@@ -20,3 +20,8 @@ void tConfirmCustom::on_startSimulationBtn2_clicked()
 
     this->close();
 }
+
+void tConfirmCustom::on_cancelButton_clicked()
+{
+    this->close();
+}

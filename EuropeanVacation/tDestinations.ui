@@ -49,7 +49,7 @@
     <string notr="true">color: blue;</string>
    </property>
    <property name="text">
-    <string>Destinations Available </string>
+    <string/>
    </property>
   </widget>
   <widget class="QTableView" name="tDestinationOptionsTV">
@@ -87,10 +87,10 @@ broder: 2px outset black;
   <widget class="QLabel" name="frenchMagmarLabel">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>0</y>
-     <width>601</width>
-     <height>671</height>
+     <x>564</x>
+     <y>-48</y>
+     <width>667</width>
+     <height>769</height>
     </rect>
    </property>
    <property name="text">

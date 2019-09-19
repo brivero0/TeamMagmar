@@ -19,6 +19,8 @@ public:
 private slots:
     void on_startSimulationButton_clicked();
 
+    void on_cancelButton_clicked();
+
 private:
     Ui::tConfirmLondon *ui;
     tTravelSimulation * tTravelSimulationWindow1;

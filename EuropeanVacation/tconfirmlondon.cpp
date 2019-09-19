@@ -20,3 +20,8 @@ void tConfirmLondon::on_startSimulationButton_clicked()
     tTravelSimulationWindow1->show();
     this->close();
 }
+
+void tConfirmLondon::on_cancelButton_clicked()
+{
+    this->close();
+}

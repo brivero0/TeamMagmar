@@ -19,6 +19,8 @@ public:
 private slots:
     void on_startSimulationBtn2_clicked();
 
+    void on_cancelButton_clicked();
+
 private:
     Ui::tConfirmCustom *ui;
     tTravelSimulation * tTravelSimulationWindow2;

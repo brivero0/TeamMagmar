@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "ttravelsimulation.h"
 
+
 namespace Ui {
 class tConfirmParis;
 }
@@ -19,9 +20,12 @@ public:
 private slots:
     void on_startSimulationBtn1_clicked();
 
+    void on_cancelButton_clicked();
+
 private:
     Ui::tConfirmParis *ui;
     tTravelSimulation * tTravelSimulationWindow1;
+
 };
 
 #endif // TCONFIRMPARIS_H
