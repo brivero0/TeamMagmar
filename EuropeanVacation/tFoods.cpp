@@ -25,6 +25,9 @@ void tFoods::tFoods::defaultReset()
     QSqlQueryModel * model = new QSqlQueryModel;
     QSqlQueryModel * table = new QSqlQueryModel;
 
+    table->setHeaderData(0, Qt::Horizontal, QObject::tr("Food Name"));
+    table->setHeaderData(1, Qt::Horizontal, QObject::tr("Name"));
+
     table->setQuery("SELECT foodName, Price "
                     "FROM Food "
                     "WHERE City = '"+start+"'");
@@ -32,9 +35,6 @@ void tFoods::tFoods::defaultReset()
     model->setQuery("SELECT DISTINCT City "
                     "FROM Food ");
 
-
-    table->setHeaderData(0, Qt::Horizontal, QObject::tr("Food Name"));
-    table->setHeaderData(1, Qt::Horizontal, QObject::tr("Name"));
 
 
     ui->tFoodOptionsTV->verticalHeader()->setVisible(false);

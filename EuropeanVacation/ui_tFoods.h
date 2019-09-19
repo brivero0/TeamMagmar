@@ -25,6 +25,7 @@ public:
     QLabel *Title;
     QTableView *tFoodOptionsTV;
     QComboBox *tCityList;
+    QLabel *label;
 
     void setupUi(QWidget *tFoods)
     {
@@ -38,19 +39,35 @@ public:
         tFoods->setSizePolicy(sizePolicy);
         tFoods->setMinimumSize(QSize(1200, 640));
         tFoods->setMaximumSize(QSize(1200, 640));
+        tFoods->setStyleSheet(QStringLiteral("background-color: rgb(0, 0, 0);"));
         Title = new QLabel(tFoods);
         Title->setObjectName(QStringLiteral("Title"));
-        Title->setGeometry(QRect(10, 10, 651, 50));
+        Title->setGeometry(QRect(460, 0, 651, 50));
         QFont font;
-        font.setPointSize(16);
+        font.setFamily(QStringLiteral("Script MT Bold"));
+        font.setPointSize(36);
+        font.setBold(false);
+        font.setItalic(false);
+        font.setUnderline(true);
+        font.setWeight(9);
         Title->setFont(font);
-        Title->setStyleSheet(QStringLiteral("color: blue;"));
+        Title->setStyleSheet(QLatin1String("color: white;\n"
+"font: 75 36pt \"Script MT Bold\";\n"
+"text-decoration: underline;\n"
+""));
         tFoodOptionsTV = new QTableView(tFoods);
         tFoodOptionsTV->setObjectName(QStringLiteral("tFoodOptionsTV"));
         tFoodOptionsTV->setGeometry(QRect(470, 200, 311, 221));
+        tFoodOptionsTV->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
         tCityList = new QComboBox(tFoods);
         tCityList->setObjectName(QStringLiteral("tCityList"));
         tCityList->setGeometry(QRect(22, 211, 231, 31));
+        label = new QLabel(tFoods);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(30, 170, 121, 31));
+        label->setStyleSheet(QLatin1String("color: rgb(255, 255, 255);\n"
+"font: 16pt \"Times New Roman\";\n"
+""));
 
         retranslateUi(tFoods);
 
@@ -60,7 +77,8 @@ public:
     void retranslateUi(QWidget *tFoods)
     {
         tFoods->setWindowTitle(QApplication::translate("tFoods", "Form", nullptr));
-        Title->setText(QApplication::translate("tFoods", "Traveler's Food Options Widget", nullptr));
+        Title->setText(QApplication::translate("tFoods", "Menu", nullptr));
+        label->setText(QApplication::translate("tFoods", "Select City", nullptr));
     } // retranslateUi
 
 };
