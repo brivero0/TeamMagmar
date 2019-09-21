@@ -31,12 +31,19 @@
     <rect>
      <x>50</x>
      <y>220</y>
-     <width>121</width>
-     <height>41</height>
+     <width>135</width>
+     <height>30</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:#ffa500;
+border-style: solid;
+border-color: black;
+border-width: 2px;
+border-radius: 5px;</string>
+   </property>
    <property name="text">
-    <string>Start Simulation</string>
+    <string>Start your vacation!</string>
    </property>
   </widget>
   <widget class="QPushButton" name="cancelButton">
@@ -44,9 +51,16 @@
     <rect>
      <x>210</x>
      <y>220</y>
-     <width>131</width>
-     <height>51</height>
+     <width>135</width>
+     <height>30</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:#ffa500;
+border-style: solid;
+border-color: black;
+border-width: 2px;
+border-radius: 5px;</string>
    </property>
    <property name="text">
     <string>Cancel</string>
