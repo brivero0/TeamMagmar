@@ -52,38 +52,6 @@
     <string/>
    </property>
   </widget>
-  <widget class="QTableView" name="tDestinationOptionsTV">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>551</width>
-     <height>571</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-     <horstretch>3</horstretch>
-     <verstretch>3</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QHeaderView::section{
-background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0.028, stop:0 rgba(255, 170, 0, 255), stop:1 rgba(255, 62, 14, 255));
-border-style: solid;
-border-color: black;
-border-width: 2px;
-border-radius: 5px;}
-
-QTableView QTableCornerButton::section{
-background: red;
-broder: 2px outset black;
-}</string>
-   </property>
-   <property name="dragEnabled">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QLabel" name="frenchMagmarLabel">
    <property name="geometry">
     <rect>
@@ -98,6 +66,44 @@ broder: 2px outset black;
    </property>
    <property name="pixmap">
     <pixmap resource="resource.qrc">:/images/FrenchMagmar.PNG</pixmap>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tDestinationOptionsTV">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>30</y>
+     <width>301</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+     <horstretch>3</horstretch>
+     <verstretch>3</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>60</width>
+     <height>60</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QHeaderView::section{
+background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0.028, stop:0 rgba(255, 170, 0, 255), stop:1 rgba(255, 62, 14, 255));
+border-style: solid;
+border-color: black;
+border-width: 2px;
+border-radius: 5px;}
+
+QTableView{
+background: red;
+broder: 2px outset black;
+}</string>
+   </property>
+   <property name="dragEnabled">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>
