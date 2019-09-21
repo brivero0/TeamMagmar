@@ -31,38 +31,171 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">color white;</string>
+  </property>
   <widget class="QLabel" name="Title">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
+     <x>500</x>
+     <y>80</y>
      <width>651</width>
      <height>50</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>16</pointsize>
+     <family>Script MT Bold</family>
+     <pointsize>36</pointsize>
+     <weight>9</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>true</underline>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: blue;</string>
+    <string notr="true">color: black;
+font: 75 36pt &quot;Script MT Bold&quot;;
+text-decoration: underline;
+</string>
    </property>
    <property name="text">
-    <string>Traveler's Food Options Widget</string>
+    <string>Menu</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="selCity">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>200</y>
+     <width>120</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;
+font: 16pt &quot;Times New Roman&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>Select City</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="foodOption">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>180</y>
+     <width>210</width>
+     <height>48</height>
+    </rect>
+   </property>
+   <property name="whatsThis">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Food Options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 22pt &quot;Sylfaen&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Food Options</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-10</y>
+     <width>1201</width>
+     <height>661</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resource.qrc">:/images/menuBack.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QTableView" name="tFoodOptionsTV">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>311</width>
-     <height>221</height>
+     <x>601</x>
+     <y>236</y>
+     <width>401</width>
+     <height>281</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="showGrid">
+    <bool>true</bool>
+   </property>
+   <property name="sortingEnabled">
+    <bool>false</bool>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>125</number>
+   </attribute>
+   <attribute name="verticalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderHighlightSections">
+    <bool>false</bool>
+   </attribute>
   </widget>
+  <widget class="QComboBox" name="tCityList">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>230</y>
+     <width>291</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>35</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>Title</zorder>
+  <zorder>selCity</zorder>
+  <zorder>foodOption</zorder>
+  <zorder>tFoodOptionsTV</zorder>
+  <zorder>tCityList</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>
