@@ -63,19 +63,20 @@ border-radius: 5px;</string>
     <rect>
      <x>20</x>
      <y>110</y>
-     <width>191</width>
+     <width>361</width>
      <height>121</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>Californian FB</family>
      <pointsize>14</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffa500;&quot;&gt;MAGMAR'S EUROPEAN TRAVEL AGENCY&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#ffa500;&quot;&gt;MAGMAR'S&lt;/span&gt;&lt;span style=&quot; color:#ffa500;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#ffa500;&quot;&gt;EUROPEAN TRAVEL AGENCY&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="wordWrap">
     <bool>true</bool>
@@ -274,12 +275,10 @@ border-radius: 5px;</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="resource.qrc">:/images/bluesandshrew.png</pixmap>
+    <pixmap resource="resource.qrc">:/images/magmarLogin.jpg</pixmap>
    </property>
   </widget>
-
   <widget class="QLabel" name="label_status">
-
    <property name="geometry">
     <rect>
      <x>338</x>
@@ -296,9 +295,7 @@ border-radius: 5px;</string>
   <zorder>exitProgramButton</zorder>
   <zorder>nameLabel</zorder>
   <zorder>loginGroupBox</zorder>
-
   <zorder>label_status</zorder>
-
  </widget>
  <resources>
   <include location="resource.qrc"/>
