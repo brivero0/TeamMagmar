@@ -41,22 +41,6 @@
     </rect>
    </property>
    <widget class="QWidget" name="mainPage">
-    <widget class="QLabel" name="adminImage">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>1201</width>
-       <height>641</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="resource.qrc">:/images/sandshrewsnowbg2.png</pixmap>
-     </property>
-    </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
@@ -75,7 +59,26 @@
       <string notr="true">color: #3a546b;</string>
      </property>
      <property name="text">
-      <string>Welcome Admin!</string>
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1201</width>
+       <height>641</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="resource.qrc">:/images/pokemonEurope.jpg</pixmap>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
    </widget>
