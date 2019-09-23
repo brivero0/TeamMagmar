@@ -23,6 +23,9 @@ public:
 
     void defualtReset();
 
+    QVector<QString> recFun(QString, int);
+
+
 private:
     Ui::tDestinations *ui;
     QString startCity = "Paris";

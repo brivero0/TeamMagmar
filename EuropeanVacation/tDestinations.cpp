@@ -29,21 +29,17 @@ void tDestinations::tDestinations::defualtReset()
                     "FROM Distances "
                     "WHERE Start = '"+startCity+"'"
                     " ORDER BY 3");
-    QSqlQuery * qry = new QSqlQuery(myDB);
-    qry->prepare("SELECT Start "
+    QSqlQuery qry;
+    qry.prepare("SELECT * "
                 "FROM Distances "
                 "WHERE Start = '"+startCity+"'"
                 " ORDER BY 3");
 
 
-
-    qry->exec();
-
-        qry->first();
-
-        QString thisString = qry->value(1).toString();
-        qDebug() << "testing" << thisString;
-
+    qry.exec();
+    qry.next();
+    QString thisString = qry.value(1).toString();
+    qDebug() << "testing" << thisString;
 
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Starting location"));
@@ -70,4 +66,48 @@ void tDestinations::tDestinations::defualtReset()
     }
     ui->tDestinationOptionsTV->setMinimumHeight(verticalHeaderHeight+rowTotalHeight + 20);
     ui->tDestinationOptionsTV->setMaximumHeight(verticalHeaderHeight+rowTotalHeight + 20);
+
+
+    QVector<QString> test;
+    test = recFun("Paris", 3);
+
+    for(int i = 0; i < 3; i++)
+        qDebug() << test[i];
+}
+
+QVector<QString> recFun(QString start, int destNum)
+{
+    QString newCity;
+    int newDestNum;
+
+    QVector<QString> temp;
+
+    QSqlQuery qry;
+    qry.prepare("SELECT * "
+                "FROM Distances "
+                "WHERE Start = '"+start+"'"
+                " ORDER BY 3");
+
+    qry.exec();
+    qry.next();
+    newCity = qry.value(1).toString();
+
+    if(newCity==start)
+    {
+        qry.next();
+        newCity = qry.value(1).toString();
+    }
+
+    newDestNum = destNum - 1;
+
+    if(newDestNum == 0)
+    {
+        temp.push_front(newCity);
+        return temp;
+    }
+    else
+    {
+        temp.append(recFun(newCity, newDestNum));
+        return temp;
+    }
 }
