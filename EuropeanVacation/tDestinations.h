@@ -21,7 +21,7 @@ public:
     explicit tDestinations(QWidget *parent = nullptr);
     ~tDestinations();
 
-    void defualtReset();
+    void defaultReset();
 
 private:
     Ui::tDestinations *ui;

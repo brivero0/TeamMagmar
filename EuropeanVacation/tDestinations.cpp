@@ -12,7 +12,7 @@ tDestinations::tDestinations(QWidget *parent) :
 
     myDB = QSqlDatabase::database();
 
-    defualtReset();
+    defaultReset();
 }
 
 // Destructor
@@ -20,8 +20,8 @@ tDestinations::~tDestinations()
 {
     delete ui;
 }
-//model->setHEaderData(#. Qt::horizontal, QObject::tr(""))
-void tDestinations::tDestinations::defualtReset()
+
+void tDestinations::tDestinations::defaultReset()
 {
     QSqlQueryModel * model = new QSqlQueryModel;
 
@@ -29,21 +29,6 @@ void tDestinations::tDestinations::defualtReset()
                     "FROM Distances "
                     "WHERE Start = '"+startCity+"'"
                     " ORDER BY 3");
-    QSqlQuery * qry = new QSqlQuery(myDB);
-    qry->prepare("SELECT Start "
-                "FROM Distances "
-                "WHERE Start = '"+startCity+"'"
-                " ORDER BY 3");
-
-
-
-    qry->exec();
-
-        qry->first();
-
-        QString thisString = qry->value(1).toString();
-        qDebug() << "testing" << thisString;
-
 
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Starting location"));
@@ -68,6 +53,6 @@ void tDestinations::tDestinations::defualtReset()
     for (int i = 0; i < count; ++i) {
         collumnTotalWidth+=ui->tDestinationOptionsTV->verticalHeader()->sectionSize(i);
     }
-    ui->tDestinationOptionsTV->setMinimumHeight(verticalHeaderHeight+rowTotalHeight + 20);
-    ui->tDestinationOptionsTV->setMaximumHeight(verticalHeaderHeight+rowTotalHeight + 20);
+    ui->tDestinationOptionsTV->setMinimumHeight(verticalHeaderHeight+collumnTotalWidth + 20);
+    ui->tDestinationOptionsTV->setMaximumHeight(verticalHeaderHeight+collumnTotalWidth + 20);
 }
