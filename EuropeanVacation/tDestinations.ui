@@ -71,7 +71,7 @@
   <widget class="QTableView" name="tDestinationOptionsTV">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>14</x>
      <y>50</y>
      <width>540</width>
      <height>570</height>
@@ -85,7 +85,7 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>60</width>
+     <width>40</width>
      <height>60</height>
     </size>
    </property>
@@ -101,12 +101,15 @@ background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0.028, stop:0 
 border-style: solid;
 border-color: black;
 border-width: 2px;
-border-radius: 5px;}
-
-QTableView{
-background: white;
-border: 2px outset black;
-}</string>
+border-radius: 5px;
+color: blue}
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
    </property>
    <property name="dragEnabled">
     <bool>true</bool>

@@ -30,6 +30,16 @@ void tDestinations::tDestinations::defaultReset()
                     "WHERE Start = '"+startCity+"'"
                     " ORDER BY 3");
 
+    QSqlQuery qry;
+    qry.prepare("SELECT * "
+                "FROM Distances "
+                "WHERE Start = '"+startCity+"'"
+                "ORDER BY Kilometers ASC");
+    qry.exec();
+    qry.next();
+
+    QString idValue = qry.value(1).toString();
+    qDebug() << idValue;
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Starting location"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Destination"));
@@ -38,21 +48,18 @@ void tDestinations::tDestinations::defaultReset()
     ui->tDestinationOptionsTV->verticalHeader()->setVisible(false);
     ui->tDestinationOptionsTV->setModel(model);
 
-    int countH=ui->tDestinationOptionsTV->verticalHeader()->count();
-    int horizontalHeaderHeight=ui->tDestinationOptionsTV->horizontalHeader()->height();
-    int rowTotalHeight=0;
-    for (int i = 0; i < countH; ++i) {
-        rowTotalHeight+=ui->tDestinationOptionsTV->verticalHeader()->sectionSize(i);
-    }
-    ui->tDestinationOptionsTV->setMinimumHeight(horizontalHeaderHeight+rowTotalHeight + 20);
-    ui->tDestinationOptionsTV->setMaximumHeight(horizontalHeaderHeight+rowTotalHeight + 20);
+    QAbstractItemModel* tableModel= ui->tDestinationOptionsTV->model();
 
-    int count=ui->tDestinationOptionsTV->horizontalHeader()->count();
-    int verticalHeaderHeight=ui->tDestinationOptionsTV->verticalHeader()->height();
-    int collumnTotalWidth=0;
-    for (int i = 0; i < count; ++i) {
-        collumnTotalWidth+=ui->tDestinationOptionsTV->verticalHeader()->sectionSize(i);
-    }
-    ui->tDestinationOptionsTV->setMinimumHeight(verticalHeaderHeight+collumnTotalWidth + 20);
-    ui->tDestinationOptionsTV->setMaximumHeight(verticalHeaderHeight+collumnTotalWidth + 20);
+    int w = ui->tDestinationOptionsTV->verticalHeader()->width(); // +4 seems to be needed
+    for (int i = 0; i < tableModel->columnCount(); i++)
+       w += ui->tDestinationOptionsTV->columnWidth(i); // seems to include gridline (on my machine)
+    int h = ui->tDestinationOptionsTV->horizontalHeader()->height();
+    for (int i = 0; i < tableModel->rowCount(); i++)
+       h += ui->tDestinationOptionsTV->rowHeight(i);
+
+    ui->tDestinationOptionsTV->setMinimumWidth(w);
+    ui->tDestinationOptionsTV->setMaximumWidth(w);
+
+    ui->tDestinationOptionsTV->setMinimumHeight(h);
+    ui->tDestinationOptionsTV->setMaximumHeight(h);
 }
