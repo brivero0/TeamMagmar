@@ -16,8 +16,8 @@
   <widget class="QLabel" name="ParisConfirmationLabel">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>80</y>
+     <x>30</x>
+     <y>0</y>
      <width>261</width>
      <height>81</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="startSimulationBtn1">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>190</y>
+     <x>20</x>
+     <y>410</y>
      <width>135</width>
      <height>30</height>
     </rect>
@@ -49,8 +49,8 @@ border-radius: 5px;</string>
   <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>200</y>
+     <x>580</x>
+     <y>410</y>
      <width>135</width>
      <height>30</height>
     </rect>
@@ -64,6 +64,16 @@ border-radius: 5px;</string>
    </property>
    <property name="text">
     <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="cityList">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>100</y>
+     <width>231</width>
+     <height>251</height>
+    </rect>
    </property>
   </widget>
  </widget>
