@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>622</width>
+    <height>398</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>50</y>
-     <width>191</width>
-     <height>81</height>
+     <x>12</x>
+     <y>0</y>
+     <width>103</width>
+     <height>49</height>
     </rect>
    </property>
    <property name="text">
@@ -29,10 +29,10 @@
   <widget class="QPushButton" name="startSimulationButton">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>220</y>
+     <x>144</x>
+     <y>341</y>
      <width>135</width>
-     <height>30</height>
+     <height>37</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -49,8 +49,8 @@ border-radius: 5px;</string>
   <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>220</y>
+     <x>354</x>
+     <y>342</y>
      <width>135</width>
      <height>30</height>
     </rect>
@@ -64,6 +64,45 @@ border-radius: 5px;</string>
    </property>
    <property name="text">
     <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="numCitiesSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>72</y>
+     <width>37</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>2</number>
+   </property>
+   <property name="maximum">
+    <number>13</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>12</y>
+     <width>217</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Please select the number of cities you would like to travel to! </string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="LondonListWidget">
+   <property name="geometry">
+    <rect>
+     <x>228</x>
+     <y>114</y>
+     <width>256</width>
+     <height>192</height>
+    </rect>
    </property>
   </widget>
  </widget>
