@@ -58,31 +58,123 @@ void tConfirmCustom::sortList()
 {
     QString temp; // used as temporary storage while swapping
 
-    // Transfer customList (selected cities) into tempList to use as argument
+    /************************************************************************
+     * PROCESS: Copy contents of customList (traveler's selected citites)
+     *          into tempList (QVector <QString> array).
+     ***********************************************************************/
     for(int i = 0; i < customList.count(); i++)
     {
         temp = customList.at(i)->text();
         sortedDestinationList.push_back(temp);
     }
 
-qDebug() << "size: " << sortedDestinationList.size();
+    qDebug() << "size: " << sortedDestinationList.size();
 
-    // If startCity is not index 0, swap.
+    /************************************************************************
+     * PROCESS: Check if traveler's selected startCity is index 0 in
+     *          sortedDestinationList array.
+     *          If startCity is not at index 0, swap position.
+     ***********************************************************************/
     if(sortedDestinationList[0] != startCity)
     {
         int index = 0;
 
-
-        while(index < sortedDestinationList.size() && sortedDestinationList[index] != startCity)
+        // Find index location of the startCity
+        while(index < sortedDestinationList.size() &&
+              sortedDestinationList[index] != startCity)
         {
             index++;
         }
 
-        // swap
+        // Do the swap
         temp = sortedDestinationList[index];
         sortedDestinationList[index] = sortedDestinationList[0];
         sortedDestinationList[0] = temp;
     }
+
+    // Redundant code
+    // Make sure startCity is first element in array
+    startCity = sortedDestinationList[0];
+
+    qDebug() << "start city: " << startCity;
+    
+    /************************************************************************
+     * PROCESS: Sort array from index 1 to n (max index) -1.
+     *          Index 0 is the start destination.
+     *          Index n (max index for array) is last element, which does
+     *              not require sorting.  It is the end.
+     ***********************************************************************/
+    for(int i = 1; i < (sortedDestinationList.size()-1); i++)
+    {
+        bool isFound = false; // CALC - used to determine if closestCity
+                              //        to the startCity is a remaining
+                              //        city in the array.
+        int  j = i;           // CALC - used to check the remaining array
+                              //        for closestCity not yet sorted
+
+
+        // Create query for list of cities closest to the startCity in order
+        // by distance.
+        QSqlQuery sortQry;
+        sortQry.prepare("SELECT * "
+                        "FROM Distances "
+                        "WHERE Start = '"+startCity+"' "
+                        "ORDER BY Kilometers ASC");
+        sortQry.exec();
+
+        // Select first row of query and set closestCity to first item
+        sortQry.next();
+        closestCity = sortQry.value(1).toString();
+
+        qDebug() << "The next closest city is: " << closestCity;
+
+        /********************************************************************
+         * PROCESS: Find next closestCity to the StartCity that is in the
+         *          array sortedDestinationList.
+         *******************************************************************/
+        while(!isFound)
+        {
+            // Stay within array boundry
+            if(j < sortedDestinationList.size())
+            {
+                // closestCity found
+                if(closestCity == sortedDestinationList[j])
+                {
+                    isFound = true;
+                    qDebug() << "It matches next item in array: "
+                             << closestCity << endl;
+                }
+                // Check next element in array
+                else
+                {
+                    qDebug() << "It does not match next item in array: "
+                             << closestCity << endl;
+                    j++;
+                }
+            }
+            // If out of array boundry, move to next row in query and make
+            // that city the next closestCity
+            else
+            {
+                j = i;
+                sortQry.next();
+                closestCity = sortQry.value(1).toString();
+            }
+        }
+
+        // If closestCity is found in the array, do the swap
+        if(isFound)
+        {
+            temp = sortedDestinationList[j];
+            sortedDestinationList[j] = sortedDestinationList[i];
+            sortedDestinationList[i] = temp;
+            startCity = sortedDestinationList[i];
+        }
+
+        qDebug() << "start city: " << startCity;
+    }
+
+
 
     // Do other sorts here so final vector list is ready for simulation
 }

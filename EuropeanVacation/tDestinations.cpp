@@ -29,20 +29,20 @@ void tDestinations::tDestinations::defualtReset()
                     "FROM Distances "
                     "WHERE Start = '"+startCity+"'"
                     " ORDER BY 3");
-    QSqlQuery * qry = new QSqlQuery(myDB);
-    qry->prepare("SELECT Start "
-                "FROM Distances "
-                "WHERE Start = '"+startCity+"'"
-                " ORDER BY 3");
+//    QSqlQuery * qry = new QSqlQuery(myDB);
+//    qry->prepare("SELECT Start "
+//                "FROM Distances "
+//                "WHERE Start = '"+startCity+"'"
+//                " ORDER BY 3");
 
 
 
-    qry->exec();
+//    qry->exec();
 
-        qry->first();
+//        qry->first();
 
-        QString thisString = qry->value(1).toString();
-        qDebug() << "testing" << thisString;
+//        QString thisString = qry->value(1).toString();
+//        qDebug() << "testing" << thisString;
 
 
 

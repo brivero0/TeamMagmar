@@ -105,7 +105,7 @@ border-radius: 5px;}
 
 QTableView{
 background: white;
-broder: 2px outset black;
+border: 2px outset black;
 }</string>
    </property>
    <property name="dragEnabled">

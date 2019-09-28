@@ -40,6 +40,7 @@ private:
     QVector<QString> sortedDestinationList;
     QVector<QString> sortedDistancesList;
     QString startCity;
+    QString closestCity;
     QSqlDatabase myDB;
 };
 
