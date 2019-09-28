@@ -1,6 +1,7 @@
 #include "ttravelsimulation.h"
 #include "ui_ttravelsimulation.h"
 #include <QMessageBox>
+#include <QDebug>
 
 tTravelSimulation::tTravelSimulation(QWidget *parent) :
     QWidget(parent),
@@ -12,6 +13,18 @@ tTravelSimulation::tTravelSimulation(QWidget *parent) :
 tTravelSimulation::~tTravelSimulation()
 {
     delete ui;
+}
+
+void tTravelSimulation::getList(QVector<QString> temp)
+{
+    simulationList = temp;
+    int index = 0;
+
+    while(index < simulationList.size())
+    {
+        ui->testListWidget->addItem(simulationList[index]);
+        index++;
+    }
 }
 
 void tTravelSimulation::on_exitSimulationButton_clicked()
