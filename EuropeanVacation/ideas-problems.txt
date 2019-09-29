@@ -1,0 +1,4 @@
+standardized ui design
+fix login enter key bug
+format tFestination and parisConformation
+set all black text to black
