@@ -100,16 +100,20 @@ void traveler::on_logoutButton_clicked()
 
 void traveler::on_SelectMagbyButton_clicked()
 {
-
+    int total = 11;
     tConfirmWindow = new tConfirmParis();
+    tConfirmWindow->getCityNum(total);
+    tConfirmWindow->generateList();
     tConfirmWindow->show();
 
 }
 
 void traveler::on_SelectMagmarButton_clicked()
 {
-
+//    int total = 13;
     tConfirmWindow = new tConfirmParis();
+//    tConfirmWindow->getCityNum(total);
+//    tConfirmWindow->generateList();
     tConfirmWindow->show();
 }
 

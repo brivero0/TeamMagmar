@@ -16,8 +16,8 @@ tConfirmLondon::~tConfirmLondon()
 
 void tConfirmLondon::on_startSimulationButton_clicked()
 {
-    tTravelSimulationWindow1 = new tTravelSimulation();
-    tTravelSimulationWindow1->show();
+//    tTravelSimulationWindow1 = new tTravelSimulation(sortedDestinations, sortedDistance, cityNum);
+//    tTravelSimulationWindow1->show();
     this->close();
 }
 
