@@ -24,7 +24,7 @@ tConfirmLondon::tConfirmLondon(QWidget *parent) :
 
 
     ui->numCitiesSpinBox->setMinimum(2);
-    qDebug() << "ROW COUNT: " << rowCount;
+    //qDebug() << "ROW COUNT: " << rowCount;
     ui->numCitiesSpinBox->setMaximum(rowCount);
     on_numCitiesSpinBox_valueChanged();
 
@@ -37,7 +37,8 @@ tConfirmLondon::~tConfirmLondon()
 
 void tConfirmLondon::on_startSimulationButton_clicked()
 {
-    tTravelSimulationWindow1 = new tTravelSimulation(p,d,rowCount);
+    tTravelSimulationWindow1 = new tTravelSimulation(p,d,number);
+    //qDebug() << "rowCount: " << rowCount;
     tTravelSimulationWindow1->show();
     p=nullptr;
     d=nullptr;
@@ -57,7 +58,7 @@ void tConfirmLondon::on_numCitiesSpinBox_valueChanged()
 
     QString start = "London";
 
-    int number = ui->numCitiesSpinBox->value();
+    number = ui->numCitiesSpinBox->value();
 
     QString testCity;
     testCity = "London";

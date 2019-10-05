@@ -40,6 +40,7 @@ private:
     int rowCount;
     QString * p;
     int * d;
+    int number;
 };
 
 #endif // TCONFIRMLONDON_H

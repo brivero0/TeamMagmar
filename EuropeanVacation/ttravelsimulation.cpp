@@ -25,10 +25,10 @@ tTravelSimulation::~tTravelSimulation()
 
 void tTravelSimulation::loadTables()
 {
-    for(int i = 0; i < 11; i++)
+    for(int i = 0; i < total; i++)
     {
 //      qDebug() << sortedDestinations[i] << ' ' << sortedDistance[i];
-
+        qDebug() << "Total: " << total;
 //        ui->cityList->addItem(sortedDestinations[i]);
 //      ui->cityList_2->addItem(QString::number(sortedDistance[i]));
         ui->listWidget->addItem(destinations[i]);
