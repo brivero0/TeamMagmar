@@ -15,7 +15,7 @@ tConfirmCustom::~tConfirmCustom()
 
 void tConfirmCustom::on_startSimulationBtn2_clicked()
 {
-    tTravelSimulationWindow2 = new tTravelSimulation();
+//    tTravelSimulationWindow2 = new tTravelSimulation();
     tTravelSimulationWindow2->show();
 
     this->close();

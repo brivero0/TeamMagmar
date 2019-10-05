@@ -64,11 +64,10 @@ void tConfirmParis::generateList()
     }
 
     for(int i = 0; i < cityNum; i++)
-           {
-               qDebug() << sortedDestinations[i];
-
-               ui->cityList->addItem(sortedDestinations[i]);
-           }
+    {
+        qDebug() << sortedDestinations[i];
+        ui->cityList->addItem(sortedDestinations[i]);
+    }
 }
 
 void tConfirmParis::on_startSimulationBtn1_clicked()

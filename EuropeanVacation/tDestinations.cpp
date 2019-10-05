@@ -49,30 +49,27 @@ void tDestinations::tDestinations::defualtReset()
     ui->tDestinationOptionsTV->verticalHeader()->setVisible(false);
     ui->tDestinationOptionsTV->setModel(model);
 
-    int countH=ui->tDestinationOptionsTV->verticalHeader()->count();
-    int horizontalHeaderHeight=ui->tDestinationOptionsTV->horizontalHeader()->height();
-    int rowTotalHeight=0;
-    for (int i = 0; i < countH; ++i) {
-        rowTotalHeight+=ui->tDestinationOptionsTV->verticalHeader()->sectionSize(i);
-    }
-    ui->tDestinationOptionsTV->setMinimumHeight(horizontalHeaderHeight+rowTotalHeight + 20);
-    ui->tDestinationOptionsTV->setMaximumHeight(horizontalHeaderHeight+rowTotalHeight + 20);
+    QAbstractItemModel* tableModel= ui->tDestinationOptionsTV->model();
 
-    int count=ui->tDestinationOptionsTV->horizontalHeader()->count();
-    int verticalHeaderHeight=ui->tDestinationOptionsTV->verticalHeader()->height();
-    int collumnTotalWidth=0;
-    for (int i = 0; i < count; ++i) {
-        collumnTotalWidth+=ui->tDestinationOptionsTV->verticalHeader()->sectionSize(i);
-    }
-    ui->tDestinationOptionsTV->setMinimumHeight(verticalHeaderHeight+rowTotalHeight + 20);
-    ui->tDestinationOptionsTV->setMaximumHeight(verticalHeaderHeight+rowTotalHeight + 20);
+    int w = ui->tDestinationOptionsTV->verticalHeader()->width()+4;//change +4 if its too big or small
+    for (int i = 0; i < tableModel->columnCount(); i++)
+       w += ui->tDestinationOptionsTV->columnWidth(i); // seems to include gridline
+    int h = ui->tDestinationOptionsTV->horizontalHeader()->height()+4;//change +4 if its too big or small
+    for (int i = 0; i < tableModel->rowCount(); i++)
+       h += ui->tDestinationOptionsTV->rowHeight(i);
+
+    ui->tDestinationOptionsTV->setMinimumWidth(w);
+    ui->tDestinationOptionsTV->setMaximumWidth(w);
+
+    ui->tDestinationOptionsTV->setMinimumHeight(h);
+    ui->tDestinationOptionsTV->setMaximumHeight(h);
 
 
-    QVector<QString> test;
-    test = recFun("Paris", 3);
+//    QVector<QString> test;
+//    test = recFun("Paris", 3);
 
-    for(int i = 0; i < 3; i++)
-        qDebug() << test[i];
+//    for(int i = 0; i < 3; i++)
+//        qDebug() << test[i];
 }
 
 QVector<QString> recFun(QString start, int destNum)
