@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>images/passwordIcon.png</file>
         <file>images/usernameIcon.png</file>
-        <file>images/poke.png</file>
         <file>images/FrenchMagmar.PNG</file>
         <file>images/paris.jpg</file>
         <file>images/pokemonEurope.png</file>
