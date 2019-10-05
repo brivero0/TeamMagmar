@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    afooddialog.cpp \
         main.cpp \
     admin.cpp \
     login.cpp \
@@ -37,11 +38,13 @@ SOURCES += \
     tconfirmparis.cpp \
     tconfirmcustom.cpp \
     ttravelsimulation.cpp \
-    tconfirmlondon.cpp
+    tconfirmlondon.cpp \
+    updatefood.cpp
 
 
 HEADERS += \
     admin.h \
+    afooddialog.h \
     login.h \
     databasemanger.h \
     traveler.h \
@@ -52,11 +55,13 @@ HEADERS += \
     tconfirmparis.h \
     tconfirmcustom.h \
     ttravelsimulation.h \
-    tconfirmlondon.h
+    tconfirmlondon.h \
+    updatefood.h
 
 
 FORMS += \
     admin.ui \
+    afooddialog.ui \
     login.ui \
     traveler.ui \
     tDestinations.ui \
@@ -66,7 +71,8 @@ FORMS += \
     tconfirmparis.ui \
     tconfirmcustom.ui \
     ttravelsimulation.ui \
-    tconfirmlondon.ui
+    tconfirmlondon.ui \
+    updatefood.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
