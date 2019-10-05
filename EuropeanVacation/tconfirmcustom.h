@@ -35,7 +35,7 @@ private slots:
 
 private:
     Ui::tConfirmCustom *ui;
-    tTravelSimulation * tTravelSimulationWindow2;
+    tTravelSimulation * tTravelSimulationWindow;
     QList<QListWidgetItem *> customList;
     QVector<QString> sortedDestinationList;
     QVector<int> sortedDistancesList;

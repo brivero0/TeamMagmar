@@ -13,14 +13,19 @@ class tTravelSimulation : public QWidget
 
 public:
     explicit tTravelSimulation(QWidget *parent = nullptr);
+    explicit tTravelSimulation(QString* cList, int* dList, int, QWidget *parent = nullptr);
     ~tTravelSimulation();
+
+    void loadTables();
 
 private slots:
     void on_exitSimulationButton_clicked();
 
 private:
     Ui::tTravelSimulation *ui;
-
+    QString* destinations = nullptr;
+    int* distances = nullptr;
+    int total;
 
 };
 

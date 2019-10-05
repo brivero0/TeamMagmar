@@ -243,8 +243,8 @@ void tConfirmCustom::on_startSimulationButton_clicked()
     qDebug() << sortedDestinationList.size();
     qDebug() << sortedDistancesList.size();
 
-    tTravelSimulationWindow2 = new tTravelSimulation();
-    tTravelSimulationWindow2->show();
+    tTravelSimulationWindow = new tTravelSimulation();
+    tTravelSimulationWindow->show();
 //    tTravelSimulationWindow2->getList(sortedDestinationList, sortedDistancesList);
 
     this->close();
