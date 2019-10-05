@@ -670,7 +670,19 @@ border-radius: 5px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:#ffb399;</string>
+      <string notr="true">
+QGroupBox{
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:0.482955, y2:0, stop:0.0852273 rgba(132, 37, 57, 255), stop:0.238636 rgba(190, 128, 193, 255), stop:0.357955 rgba(242, 112, 120, 255), stop:0.539773 rgba(255, 155, 136, 255), stop:0.744318 rgba(243, 122, 235, 255), stop:0.886364 rgba(0, 23, 255, 255), stop:1 rgba(131, 51, 64, 255));
+
+border-color: rgb(255, 255, 0);
+border-width: 5px;
+border-radius: 5px;
+border-style: solid
+}
+QPushButton{
+background-color:#ffb399;
+}
+</string>
      </property>
      <property name="title">
       <string/>
@@ -727,7 +739,10 @@ border-radius: 5px;</string>
        <number>3</number>
       </property>
       <property name="text">
-       <string>Picture Goes Here</string>
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/images/Magmar-pic.jpg</pixmap>
       </property>
      </widget>
      <widget class="QLabel" name="ShinyMagmarStartLoc">
