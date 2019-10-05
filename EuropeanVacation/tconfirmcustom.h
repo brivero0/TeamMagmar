@@ -37,8 +37,11 @@ private:
     Ui::tConfirmCustom *ui;
     tTravelSimulation * tTravelSimulationWindow;
     QList<QListWidgetItem *> customList;
-    QVector<QString> sortedDestinationList;
-    QVector<int> sortedDistancesList;
+//    QVector<QString> sortedDestinationList;
+//    QVector<int> sortedDistancesList;
+    QString* sortedDestinations = nullptr;
+    int* sortedDistance = nullptr;
+    int cityNum;
     QString startCity;
     QString closestCity;
     QSqlDatabase myDB;

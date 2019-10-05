@@ -57,6 +57,8 @@ void tConfirmCustom::defaultView()
 void tConfirmCustom::sortList()
 {
     QString temp; // used as temporary storage while swapping
+    sortedDestinations = new QString[cityNum];
+    sortedDistance = new int[cityNum];
 
     /************************************************************************
      * PROCESS: Copy contents of customList (traveler's selected citites)
@@ -65,37 +67,37 @@ void tConfirmCustom::sortList()
     for(int i = 0; i < customList.count(); i++)
     {
         temp = customList.at(i)->text();
-        sortedDestinationList.push_back(temp);
+        sortedDestinations[i] = temp;
     }
 
-    qDebug() << "size: " << sortedDestinationList.size();
+    qDebug() << "size: " << cityNum;
 
     /************************************************************************
      * PROCESS: Check if traveler's selected startCity is index 0 in
      *          sortedDestinationList array.
      *          If startCity is not at index 0, swap position.
      ***********************************************************************/
-    if(sortedDestinationList[0] != startCity)
+    if(sortedDestinations[0] != startCity)
     {
         int index = 0;
 
         // Find index location of the startCity
-        while(index < sortedDestinationList.size() &&
-              sortedDestinationList[index] != startCity)
+        while(index < cityNum &&
+              sortedDestinations[index] != startCity)
         {
             index++;
         }
 
         // Do the swap
-        temp = sortedDestinationList[index];
-        sortedDestinationList[index] = sortedDestinationList[0];
-        sortedDestinationList[0] = temp;
+        temp = sortedDestinations[index];
+        sortedDestinations[index] = sortedDestinations[0];
+        sortedDestinations[0] = temp;
     }
 
     // Redundant code
     // Make sure startCity is first element in array
-    startCity = sortedDestinationList[0];
-    sortedDistancesList.push_back(0);
+    startCity = sortedDestinations[0];
+    sortedDistance[0] = 0;
 
     qDebug() << "start city: " << startCity;
     
@@ -105,7 +107,7 @@ void tConfirmCustom::sortList()
      *          Index n (max index for array) is last element, which does
      *              not require sorting.  It is the end.
      ***********************************************************************/
-    for(int i = 1; i < (sortedDestinationList.size()-1); i++)
+    for(int i = 1; i < (cityNum-1); i++)
     {
         bool isFound = false; // CALC - used to determine if closestCity
                               //        to the startCity is a remaining
@@ -136,10 +138,10 @@ void tConfirmCustom::sortList()
         while(!isFound)
         {
             // Stay within array boundry
-            if(j < sortedDestinationList.size())
+            if(j < cityNum)
             {
                 // closestCity found
-                if(closestCity == sortedDestinationList[j])
+                if(closestCity == sortedDestinations[j])
                 {
                     isFound = true;
                     qDebug() << "It matches next item in array: "
@@ -166,19 +168,19 @@ void tConfirmCustom::sortList()
         // If closestCity is found in the array, do the swap
         if(isFound)
         {
-            temp = sortedDestinationList[j];
-            sortedDestinationList[j] = sortedDestinationList[i];
-            sortedDestinationList[i] = temp;
-            startCity = sortedDestinationList[i];
-            sortedDistancesList.push_back(sortQry.value(2).toInt());
+            temp = sortedDestinations[j];
+            sortedDestinations[j] = sortedDestinations[i];
+            sortedDestinations[i] = temp;
+            startCity = sortedDestinations[i];
+            sortedDistance[i] = sortQry.value(2).toInt();
 
-            qDebug() << sortedDistancesList[i];
+            qDebug() << sortedDestinations[i];
         }
 
         qDebug() << "start city: " << startCity;
     }
 
-    closestCity = sortedDestinationList.last();
+    closestCity = sortedDestinations[cityNum-1];
 
     // Last destination distance in list
     QSqlQuery qry;
@@ -189,7 +191,7 @@ void tConfirmCustom::sortList()
     qry.exec();
     // Select first row of query and set closestCity to first item
     qry.next();
-    sortedDistancesList.push_back(qry.value(2).toInt());
+    sortedDistance[cityNum-1] = qry.value(2).toInt();
 }
 
 void tConfirmCustom::on_resetSelectionButton_clicked()
@@ -204,12 +206,13 @@ void tConfirmCustom::on_confirmSelectionButon_clicked()
 {
     // Stores selected items from availDestListWidget into customList
     customList = ui->availDestListWidget->selectedItems();
+    cityNum = customList.count();
 
-    if(customList.count() >= 2)
+    if(cityNum >= 2)
     {
         ui->startCityComboBox->addItem(" ");
 
-        for(int i = 0; i < customList.count(); i++)
+        for(int i = 0; i < cityNum; i++)
         {
             ui->confirmListWidget->addItem(customList.at(i)->text());
             ui->startCityComboBox->addItem(customList.at(i)->text());
@@ -240,12 +243,12 @@ void tConfirmCustom::on_startCityComboBox_currentIndexChanged(int index)
 void tConfirmCustom::on_startSimulationButton_clicked()
 {
     sortList();
-    qDebug() << sortedDestinationList.size();
-    qDebug() << sortedDistancesList.size();
 
-    tTravelSimulationWindow = new tTravelSimulation();
+    tTravelSimulationWindow = new tTravelSimulation(sortedDestinations, sortedDistance, cityNum);
     tTravelSimulationWindow->show();
-//    tTravelSimulationWindow2->getList(sortedDestinationList, sortedDistancesList);
+
+    sortedDestinations = nullptr;
+    sortedDistance = nullptr;
 
     this->close();
 }
