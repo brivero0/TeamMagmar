@@ -38,8 +38,6 @@ void tDestinations::tDestinations::defaultReset()
     qry.exec();
     qry.next();
 
-    QString idValue = qry.value(1).toString();
-    qDebug() << idValue;
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Starting location"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Destination"));
@@ -50,10 +48,10 @@ void tDestinations::tDestinations::defaultReset()
 
     QAbstractItemModel* tableModel= ui->tDestinationOptionsTV->model();
 
-    int w = ui->tDestinationOptionsTV->verticalHeader()->width(); // +4 seems to be needed
+    int w = ui->tDestinationOptionsTV->verticalHeader()->width()+4;//change +4 if its too big or small
     for (int i = 0; i < tableModel->columnCount(); i++)
-       w += ui->tDestinationOptionsTV->columnWidth(i); // seems to include gridline (on my machine)
-    int h = ui->tDestinationOptionsTV->horizontalHeader()->height();
+       w += ui->tDestinationOptionsTV->columnWidth(i); // seems to include gridline
+    int h = ui->tDestinationOptionsTV->horizontalHeader()->height()+4;//change +4 if its too big or small
     for (int i = 0; i < tableModel->rowCount(); i++)
        h += ui->tDestinationOptionsTV->rowHeight(i);
 
