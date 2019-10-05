@@ -38,6 +38,8 @@ private:
     Ui::tConfirmLondon *ui;
     tTravelSimulation * tTravelSimulationWindow1;
     int rowCount;
+    QString * p;
+    int * d;
 };
 
 #endif // TCONFIRMLONDON_H

@@ -61,6 +61,7 @@ void login::connectToDB()
  ***************************************************************************/
 void login::on_loginTravelerButton_clicked()
 {
+    /*
     QString username;
     QString password;
 
@@ -98,6 +99,13 @@ void login::on_loginTravelerButton_clicked()
         ui -> passwordLineEdit -> setText("");
         ui -> usernameLineEdit -> setText("");
     }
+    */
+
+
+    connectToDB();
+    travelerWindow = new traveler();
+    travelerWindow->show();
+
 }
 
 /****************************************************************************
