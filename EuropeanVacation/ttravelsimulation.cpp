@@ -42,3 +42,8 @@ void tTravelSimulation::on_exitSimulationButton_clicked()
 
     this->close();
 }
+
+void tTravelSimulation::on_endVacationButton_clicked()
+{
+    this->close();
+}

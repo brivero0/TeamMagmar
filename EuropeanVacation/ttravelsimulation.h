@@ -21,6 +21,8 @@ public:
 private slots:
     void on_exitSimulationButton_clicked();
 
+    void on_endVacationButton_clicked();
+
 private:
     Ui::tTravelSimulation *ui;
     QString* destinations = nullptr;
