@@ -1,22 +1,20 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/bluesandshrew.png</file>
         <file>images/passwordIcon.png</file>
         <file>images/usernameIcon.png</file>
         <file>images/poke.png</file>
-        <file>images/sandshrewInverted3.jpg</file>
-        <file>images/snow.jpg</file>
-        <file>images/sandshrewsnowbg.png</file>
         <file>images/FrenchMagmar.PNG</file>
         <file>images/paris.jpg</file>
         <file>images/pokemonEurope.png</file>
         <file>images/pokemonEurope.jpg</file>
         <file>images/Magby.jpg</file>
-        <file>images/Magmortar.jpg</file>
         <file>images/volcano.jpg</file>
         <file>images/magmarLogin.jpg</file>
         <file>images/menuBack.jpg</file>
-        <file>../../../../Desktop/Magmar-pic.jpg</file>
         <file>images/Magmar-pic.jpg</file>
+        <file>images/BabyMagby.png</file>
+        <file>images/badasssssmagmar.jpg</file>
+        <file>images/Magmortar.jpg</file>
+        <file>images/Magmarr.JPG</file>
     </qresource>
 </RCC>
