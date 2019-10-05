@@ -74,6 +74,8 @@ void tConfirmParis::on_startSimulationBtn1_clicked()
 {
     tTravelSimulationWindow1 = new tTravelSimulation(sortedDestinations, sortedDistance, cityNum);
     tTravelSimulationWindow1->show();
+    sortedDistance = nullptr;
+    sortedDestinations = nullptr;
     this->close();
 }
 
