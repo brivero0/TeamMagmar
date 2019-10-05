@@ -109,9 +109,9 @@ void traveler::on_SelectMagbyButton_clicked()
 
 void traveler::on_SelectMagmarButton_clicked()
 {
-    int total = 30;
+//    int total = 13;
     tConfirmWindow = new tConfirmParis();
-    tConfirmWindow->getCityNum(total);
+//    tConfirmWindow->getCityNum(total);
     tConfirmWindow->generateList();
     tConfirmWindow->show();
 }
@@ -124,6 +124,6 @@ void traveler::on_SelectMagmortarButton_clicked()
 
 void traveler::on_SelectShinyMagmarButton_clicked()
 {
-    tConfirmWindow3 = new tConfirmCustom();
+//    tConfirmWindow3 = new tConfirmCustom();
     tConfirmWindow3->show();
 }
