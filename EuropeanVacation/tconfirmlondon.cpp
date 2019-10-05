@@ -24,7 +24,7 @@ tConfirmLondon::tConfirmLondon(QWidget *parent) :
 
 
     ui->numCitiesSpinBox->setMinimum(2);
-    qDebug() << "ROW COUNT: " << rowCount;
+    //qDebug() << "ROW COUNT: " << rowCount;
     ui->numCitiesSpinBox->setMaximum(rowCount);
     on_numCitiesSpinBox_valueChanged();
 
@@ -37,9 +37,13 @@ tConfirmLondon::~tConfirmLondon()
 
 void tConfirmLondon::on_startSimulationButton_clicked()
 {
-    tTravelSimulationWindow1 = new tTravelSimulation();
+    tTravelSimulationWindow1 = new tTravelSimulation(p,d,number);
+    //qDebug() << "rowCount: " << rowCount;
     tTravelSimulationWindow1->show();
+    p=nullptr;
+    d=nullptr;
     this->close();
+
 }
 
 void tConfirmLondon::on_cancelButton_clicked()
@@ -54,14 +58,16 @@ void tConfirmLondon::on_numCitiesSpinBox_valueChanged()
 
     QString start = "London";
 
-    int number = ui->numCitiesSpinBox->value();
+    number = ui->numCitiesSpinBox->value();
 
     QString testCity;
     testCity = "London";
 
-    QString arr[11];
+    p = new QString[rowCount]; // dynamic array to store cities
+    d = new int[rowCount]; // dynamic array to store distances
 
-    arr[0] = testCity;
+    p[0] = testCity;
+    d[0] = 0;
 
     for(int i = 1; i<number;i++)
     {
@@ -74,15 +80,17 @@ void tConfirmLondon::on_numCitiesSpinBox_valueChanged()
         qry.next();
 
        QString idValue = qry.value(1).toString();
+       int distance =  qry.value(2).toInt();
 
       for(int j=0; j<i; j++)
       {
           //qDebug() <<"here" << arr[j] << " " << idValue;
-          if (idValue==arr[j])
+          if (idValue==p[j])
           {
               //qDebug() <<"arr[j" << arr[j];
               qry.next();
               idValue = qry.value(1).toString();
+              distance = qry.value(2).toInt();
               j=-1;
           }
 
@@ -92,7 +100,8 @@ void tConfirmLondon::on_numCitiesSpinBox_valueChanged()
 
         //qDebug() << "ID VALUE" << idValue;
 
-        arr[i] = idValue;
+        p[i] = idValue;
+        d[i] = distance;
 
         testCity = idValue; //assign test city to the new city
 
@@ -102,10 +111,14 @@ void tConfirmLondon::on_numCitiesSpinBox_valueChanged()
 
        for(int i = 0; i < number; i++)
        {
-           qDebug() << arr[i];
-          ui->LondonListWidget->addItem(arr[i]);
+           qDebug() << p[i];         
+          ui->LondonListWidget->addItem(p[i]);
        }
 
+       for(int i = 0; i < number; i++)
+       {
+           qDebug() << d[i];
+       }
 
        ui->LondonListWidget->show();
 
