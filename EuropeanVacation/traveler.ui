@@ -222,28 +222,6 @@ border-radius: 5px;</string>
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QLabel" name="MagbyPic">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>265</width>
-        <height>151</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::Box</enum>
-      </property>
-      <property name="lineWidth">
-       <number>3</number>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="resource.qrc">:/images/BabyMagby.png</pixmap>
-      </property>
-     </widget>
      <widget class="QLabel" name="MagbyStartLoc">
       <property name="geometry">
        <rect>
@@ -336,14 +314,61 @@ border-radius: 5px;</string>
        <string>Food Options: Custom</string>
       </property>
      </widget>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>265</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QGroupBox{
+background-color:rgb(255, 204, 0);
+border-width:3px;
+border-style: solid;}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="MagbyPic">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>-10</y>
+         <width>181</width>
+         <height>181</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="lineWidth">
+        <number>0</number>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resource.qrc">:/images/baby-clear2.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
      <zorder>MagbyLine1</zorder>
      <zorder>SelectMagbyButton</zorder>
      <zorder>MagbyPackName</zorder>
-     <zorder>MagbyPic</zorder>
      <zorder>MagbyStartLoc</zorder>
      <zorder>MagbyNumDest</zorder>
      <zorder>MagbyLine2</zorder>
      <zorder>MagbyFoodOptions</zorder>
+     <zorder>groupBox</zorder>
     </widget>
     <widget class="QGroupBox" name="MagmarPackage">
      <property name="geometry">
