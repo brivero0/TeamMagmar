@@ -124,6 +124,6 @@ void traveler::on_SelectMagmortarButton_clicked()
 
 void traveler::on_SelectShinyMagmarButton_clicked()
 {
-//    tConfirmWindow3 = new tConfirmCustom();
+   tConfirmWindow3 = new tConfirmCustom();
     tConfirmWindow3->show();
 }

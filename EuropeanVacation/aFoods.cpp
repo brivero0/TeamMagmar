@@ -205,7 +205,7 @@ void aFoods::on_addFile_clicked()
     {
         city = in.readLine();
         food = in.readLine();
-        price= in.readLine();
+        price = in.readLine();
         in.readLine();
 
         qry->prepare("insert into Food (City,foodName,Price) "
