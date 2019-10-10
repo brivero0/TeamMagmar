@@ -195,6 +195,13 @@ border-radius: 5px;</string>
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#ccccff;
+border-style: solid;
+border-color: black;
+border-width: 2px;
+border-radius: 5px;</string>
+      </property>
       <property name="text">
        <string>Select Package</string>
       </property>
@@ -259,15 +266,15 @@ border-radius: 5px;</string>
        </font>
       </property>
       <property name="text">
-       <string>Starting Location: Paris</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Starting Location: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff0000;&quot;&gt;Paris&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="MagbyLine1">
       <property name="geometry">
        <rect>
-        <x>18</x>
+        <x>10</x>
         <y>234</y>
-        <width>259</width>
+        <width>265</width>
         <height>55</height>
        </rect>
       </property>
@@ -285,9 +292,9 @@ border-radius: 5px;</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>277</y>
+        <y>265</y>
         <width>265</width>
-        <height>19</height>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
@@ -369,6 +376,13 @@ border-radius: 5px;</string>
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#ccccff;
+border-style: solid;
+border-color: black;
+border-width: 2px;
+border-radius: 5px;</string>
+      </property>
       <property name="text">
        <string>Select Package</string>
       </property>
@@ -433,7 +447,7 @@ border-radius: 5px;</string>
        </font>
       </property>
       <property name="text">
-       <string>Starting Location: Paris</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Starting Location: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff0000;&quot;&gt;Paris&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="MagmarLine1">
@@ -535,6 +549,13 @@ border-radius: 5px;</string>
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#ccccff;
+border-style: solid;
+border-color: black;
+border-width: 2px;
+border-radius: 5px;</string>
+      </property>
       <property name="text">
        <string>Select Package</string>
       </property>
@@ -599,7 +620,7 @@ border-radius: 5px;</string>
        </font>
       </property>
       <property name="text">
-       <string>Starting Location: London</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Starting Location: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff0000;&quot;&gt;London&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="MagmortarLine1">
@@ -713,6 +734,13 @@ background-color:#ffb399;
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#ccccff;
+border-style: solid;
+border-color: black;
+border-width: 2px;
+border-radius: 5px;</string>
+      </property>
       <property name="text">
        <string>Select Package</string>
       </property>
@@ -734,7 +762,7 @@ background-color:#ffb399;
        </font>
       </property>
       <property name="text">
-       <string>Shiny Magmar Package</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Shiny Magmar Package&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -777,7 +805,7 @@ background-color:#ffb399;
        </font>
       </property>
       <property name="text">
-       <string>Starting Location: Custom</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Starting Location: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff0000;&quot;&gt;Custom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="ShinyMagmarLine1">
@@ -814,7 +842,7 @@ background-color:#ffb399;
        </font>
       </property>
       <property name="text">
-       <string>Number of Destinations: Custom</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Number of Destinations: Custom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="ShinyMagmarLine2">
@@ -851,7 +879,7 @@ background-color:#ffb399;
        </font>
       </property>
       <property name="text">
-       <string>Food Options: Custom</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Food Options: Custom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </widget>

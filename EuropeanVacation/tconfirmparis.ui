@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>742</width>
-    <height>458</height>
+    <width>275</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,27 +16,30 @@
   <widget class="QLabel" name="ParisConfirmationLabel">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>0</y>
-     <width>261</width>
-     <height>81</height>
+     <x>10</x>
+     <y>10</y>
+     <width>250</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="text">
-    <string>Paris Confirmation Window</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Paris European Vacation&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="startSimulationBtn1">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>410</y>
-     <width>135</width>
+     <x>10</x>
+     <y>460</y>
+     <width>160</width>
      <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color:#ffa500;
+    <string notr="true">background-color:#ccccff;
 border-style: solid;
 border-color: black;
 border-width: 2px;
@@ -49,14 +52,14 @@ border-radius: 5px;</string>
   <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
-     <x>580</x>
-     <y>410</y>
-     <width>135</width>
+     <x>180</x>
+     <y>460</y>
+     <width>80</width>
      <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color:#ffa500;
+    <string notr="true">background-color:#ccccff;
 border-style: solid;
 border-color: black;
 border-width: 2px;
@@ -69,11 +72,27 @@ border-radius: 5px;</string>
   <widget class="QListWidget" name="cityList">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>100</y>
-     <width>231</width>
-     <height>251</height>
+     <x>10</x>
+     <y>120</y>
+     <width>255</width>
+     <height>321</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>241</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Your vacation destinations are shown below.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>
