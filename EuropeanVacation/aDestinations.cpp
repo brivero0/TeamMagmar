@@ -46,7 +46,7 @@ void aDestinations::on_addFile_clicked()
         start = in.readLine();
         end = in.readLine();
         kilometers = in.readLine();
-        in.readLine();
+
 
         qry->prepare("insert into Distances (Start,End,Kilometers) "
                     "values('"+start+"', '"+end+"', '"+kilometers+"') ");
@@ -62,7 +62,7 @@ void aDestinations::on_addFile_clicked()
         }
 
     }
-
+    in.readLine();
     file.close();
 
     loadTableList();

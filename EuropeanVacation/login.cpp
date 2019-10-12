@@ -68,7 +68,7 @@ void login::on_loginTravelerButton_clicked()
         username = ui->usernameLineEdit->text();
         password = ui->passwordLineEdit->text();
 
-    if(username != "traveler" && password != "123")
+    if(username == "traveler" && password == "123")
     {
         ui -> passwordLineEdit -> setText("");
         ui -> usernameLineEdit -> setText("");
