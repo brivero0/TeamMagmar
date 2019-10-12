@@ -44,7 +44,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: #ecf1f5;</string>
+    <string notr="true">background-color: #ecf1f5;
+color:black;</string>
    </property>
    <property name="title">
     <string/>
