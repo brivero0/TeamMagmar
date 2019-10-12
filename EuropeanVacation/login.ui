@@ -52,7 +52,8 @@
 border-style: solid;
 border-color: white;
 border-width: 2px;
-border-radius: 5px;</string>
+border-radius: 5px;
+color: black;</string>
    </property>
    <property name="text">
     <string>Exit</string>
@@ -92,7 +93,8 @@ border-radius: 5px;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background: rgba(255, 255, 255, 0.7)</string>
+    <string notr="true">background: rgba(255, 255, 255, 0.7);
+color:black;</string>
    </property>
    <property name="title">
     <string/>
@@ -146,6 +148,9 @@ border-radius: 5px;</string>
           <font>
            <pointsize>12</pointsize>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
          </property>
          <property name="placeholderText">
           <string>Username</string>

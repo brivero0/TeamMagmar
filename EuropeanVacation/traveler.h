@@ -46,6 +46,8 @@ private slots:
 private:
     Ui::traveler*ui;
 
+    QSqlDatabase myDB;
+
     tDestinations tDestinationsWindow;
     tFoods        tFoodsWindow;
 

@@ -5,6 +5,11 @@
 #include "tconfirmparis.h"
 #include "tconfirmcustom.h"
 #include "tconfirmlondon.h"
+#include <QSqlDatabase>
+#include <QSql>
+#include <QSqlQuery>
+
+#include <QDebug>
 
 // Default Constructor
 traveler::traveler(QWidget *parent) :
@@ -16,6 +21,8 @@ traveler::traveler(QWidget *parent) :
     // Create a stacked widget index for seperate QWidget pages
     ui->stackedWidget->insertWidget(1, &tDestinationsWindow);
     ui->stackedWidget->insertWidget(2, &tFoodsWindow);
+
+    myDB = QSqlDatabase::database();
 }
 
 // Destructor
@@ -109,11 +116,31 @@ void traveler::on_SelectMagbyButton_clicked()
 
 void traveler::on_SelectMagmarButton_clicked()
 {
-//    int total = 13;
-    tConfirmWindow = new tConfirmParis();
-//    tConfirmWindow->getCityNum(total);
-    tConfirmWindow->generateList();
-    tConfirmWindow->show();
+    QString paris = "Paris";
+    QSqlQuery query;
+    query.prepare("SELECT *"
+                  "FROM Distances");
+    int size = 1;
+
+    query.exec();
+    while(query.next())
+    {
+       size++;
+    }
+
+    if(size > 13)
+    {
+        QMessageBox::information(this, "Sorry", "Sorry, this package is currently unavailable.", QMessageBox::Ok);
+        return;
+    }
+    else
+    {
+        int total = 13;
+        tConfirmWindow = new tConfirmParis();
+        tConfirmWindow->getCityNum(total);
+        tConfirmWindow->generateList();
+        tConfirmWindow->show();
+    }
 }
 
 void traveler::on_SelectMagmortarButton_clicked()

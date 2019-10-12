@@ -181,7 +181,8 @@ border-radius: 5px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:#ffff99;</string>
+      <string notr="true">background-color:#ffff99;
+color:black;</string>
      </property>
      <property name="title">
       <string/>
@@ -362,7 +363,8 @@ border-radius: 5px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:#ffe699;</string>
+      <string notr="true">background-color:#ffe699;
+color:black;</string>
      </property>
      <property name="title">
       <string/>
@@ -535,7 +537,8 @@ border-radius: 5px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:#ffa500;</string>
+      <string notr="true">background-color:#ffa500;
+color:black;</string>
      </property>
      <property name="title">
       <string/>

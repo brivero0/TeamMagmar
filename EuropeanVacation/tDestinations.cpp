@@ -30,15 +30,6 @@ void tDestinations::tDestinations::defaultReset()
                     "WHERE Start = '"+startCity+"'"
                     " ORDER BY 3");
 
-    QSqlQuery qry;
-    qry.prepare("SELECT * "
-                "FROM Distances "
-                "WHERE Start = '"+startCity+"'"
-                "ORDER BY Kilometers ASC");
-    qry.exec();
-    qry.next();
-
-
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Starting location"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Destination"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Distance(km)"));
