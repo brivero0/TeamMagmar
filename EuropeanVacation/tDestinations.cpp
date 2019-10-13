@@ -12,7 +12,7 @@ tDestinations::tDestinations(QWidget *parent) :
 
     myDB = QSqlDatabase::database();
 
-    defualtReset();
+    defaultReset();
 }
 
 // Destructor
@@ -20,8 +20,8 @@ tDestinations::~tDestinations()
 {
     delete ui;
 }
-//model->setHEaderData(#. Qt::horizontal, QObject::tr(""))
-void tDestinations::tDestinations::defualtReset()
+
+void tDestinations::tDestinations::defaultReset()
 {
     QSqlQueryModel * model = new QSqlQueryModel;
 
@@ -29,21 +29,14 @@ void tDestinations::tDestinations::defualtReset()
                     "FROM Distances "
                     "WHERE Start = '"+startCity+"'"
                     " ORDER BY 3");
-//    QSqlQuery * qry = new QSqlQuery(myDB);
-//    qry->prepare("SELECT Start "
-//                "FROM Distances "
-//                "WHERE Start = '"+startCity+"'"
-//                " ORDER BY 3");
 
-
-
-//    qry->exec();
-
-//        qry->first();
-
-//        QString thisString = qry->value(1).toString();
-//        qDebug() << "testing" << thisString;
-
+    QSqlQuery qry;
+    qry.prepare("SELECT * "
+                "FROM Distances "
+                "WHERE Start = '"+startCity+"'"
+                "ORDER BY Kilometers ASC");
+    qry.exec();
+    qry.next();
 
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Starting location"));
@@ -53,21 +46,18 @@ void tDestinations::tDestinations::defualtReset()
     ui->tDestinationOptionsTV->verticalHeader()->setVisible(false);
     ui->tDestinationOptionsTV->setModel(model);
 
-    int countH=ui->tDestinationOptionsTV->verticalHeader()->count();
-    int horizontalHeaderHeight=ui->tDestinationOptionsTV->horizontalHeader()->height();
-    int rowTotalHeight=0;
-    for (int i = 0; i < countH; ++i) {
-        rowTotalHeight+=ui->tDestinationOptionsTV->verticalHeader()->sectionSize(i);
-    }
-    ui->tDestinationOptionsTV->setMinimumHeight(horizontalHeaderHeight+rowTotalHeight + 20);
-    ui->tDestinationOptionsTV->setMaximumHeight(horizontalHeaderHeight+rowTotalHeight + 20);
+    QAbstractItemModel* tableModel= ui->tDestinationOptionsTV->model();
 
-    int count=ui->tDestinationOptionsTV->horizontalHeader()->count();
-    int verticalHeaderHeight=ui->tDestinationOptionsTV->verticalHeader()->height();
-    int collumnTotalWidth=0;
-    for (int i = 0; i < count; ++i) {
-        collumnTotalWidth+=ui->tDestinationOptionsTV->verticalHeader()->sectionSize(i);
-    }
-    ui->tDestinationOptionsTV->setMinimumHeight(verticalHeaderHeight+rowTotalHeight + 20);
-    ui->tDestinationOptionsTV->setMaximumHeight(verticalHeaderHeight+rowTotalHeight + 20);
+    int w = ui->tDestinationOptionsTV->verticalHeader()->width()+4;//change +4 if its too big or small
+    for (int i = 0; i < tableModel->columnCount(); i++)
+       w += ui->tDestinationOptionsTV->columnWidth(i); // seems to include gridline
+    int h = ui->tDestinationOptionsTV->horizontalHeader()->height()+4;//change +4 if its too big or small
+    for (int i = 0; i < tableModel->rowCount(); i++)
+       h += ui->tDestinationOptionsTV->rowHeight(i);
+
+    ui->tDestinationOptionsTV->setMinimumWidth(w);
+    ui->tDestinationOptionsTV->setMaximumWidth(w);
+
+    ui->tDestinationOptionsTV->setMinimumHeight(h);
+    ui->tDestinationOptionsTV->setMaximumHeight(h);
 }

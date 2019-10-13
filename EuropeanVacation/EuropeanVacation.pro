@@ -22,9 +22,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-CONFIG += c++11
+CONFIG += c++11 \
+          sdk_no_version_check
 
 SOURCES += \
+    afooddialog.cpp \
         main.cpp \
     admin.cpp \
     login.cpp \
@@ -37,11 +39,13 @@ SOURCES += \
     tconfirmparis.cpp \
     tconfirmcustom.cpp \
     ttravelsimulation.cpp \
-    tconfirmlondon.cpp
+    tconfirmlondon.cpp \
+    updatefood.cpp
 
 
 HEADERS += \
     admin.h \
+    afooddialog.h \
     login.h \
     databasemanger.h \
     traveler.h \
@@ -52,11 +56,13 @@ HEADERS += \
     tconfirmparis.h \
     tconfirmcustom.h \
     ttravelsimulation.h \
-    tconfirmlondon.h
+    tconfirmlondon.h \
+    updatefood.h
 
 
 FORMS += \
     admin.ui \
+    afooddialog.ui \
     login.ui \
     traveler.ui \
     tDestinations.ui \
@@ -66,7 +72,8 @@ FORMS += \
     tconfirmparis.ui \
     tconfirmcustom.ui \
     ttravelsimulation.ui \
-    tconfirmlondon.ui
+    tconfirmlondon.ui \
+    updatefood.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

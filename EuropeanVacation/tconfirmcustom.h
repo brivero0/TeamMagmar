@@ -35,10 +35,13 @@ private slots:
 
 private:
     Ui::tConfirmCustom *ui;
-    tTravelSimulation * tTravelSimulationWindow2;
+    tTravelSimulation * tTravelSimulationWindow;
     QList<QListWidgetItem *> customList;
-    QVector<QString> sortedDestinationList;
-    QVector<QString> sortedDistancesList;
+//    QVector<QString> sortedDestinationList;
+//    QVector<int> sortedDistancesList;
+    QString* sortedDestinations = nullptr;
+    int* sortedDistance = nullptr;
+    int cityNum;
     QString startCity;
     QString closestCity;
     QSqlDatabase myDB;

@@ -195,6 +195,13 @@ border-radius: 5px;</string>
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#ccccff;
+border-style: solid;
+border-color: black;
+border-width: 2px;
+border-radius: 5px;</string>
+      </property>
       <property name="text">
        <string>Select Package</string>
       </property>
@@ -238,16 +245,19 @@ border-radius: 5px;</string>
        <number>3</number>
       </property>
       <property name="text">
-       <string>Picture Goes Here</string>
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/images/BabyMagby.png</pixmap>
       </property>
      </widget>
      <widget class="QLabel" name="MagbyStartLoc">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>215</y>
+        <x>12</x>
+        <y>222</y>
         <width>265</width>
-        <height>41</height>
+        <height>37</height>
        </rect>
       </property>
       <property name="font">
@@ -256,16 +266,16 @@ border-radius: 5px;</string>
        </font>
       </property>
       <property name="text">
-       <string>Starting Location: Paris</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Starting Location: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff0000;&quot;&gt;Paris&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="MagbyLine1">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>250</y>
-        <width>300</width>
-        <height>50</height>
+        <y>234</y>
+        <width>265</width>
+        <height>55</height>
        </rect>
       </property>
       <property name="frameShadow">
@@ -333,6 +343,14 @@ border-radius: 5px;</string>
        <string>Food Options: Custom</string>
       </property>
      </widget>
+     <zorder>MagbyLine1</zorder>
+     <zorder>SelectMagbyButton</zorder>
+     <zorder>MagbyPackName</zorder>
+     <zorder>MagbyPic</zorder>
+     <zorder>MagbyStartLoc</zorder>
+     <zorder>MagbyNumDest</zorder>
+     <zorder>MagbyLine2</zorder>
+     <zorder>MagbyFoodOptions</zorder>
     </widget>
     <widget class="QGroupBox" name="MagmarPackage">
      <property name="geometry">
@@ -357,6 +375,13 @@ border-radius: 5px;</string>
         <width>115</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#ccccff;
+border-style: solid;
+border-color: black;
+border-width: 2px;
+border-radius: 5px;</string>
       </property>
       <property name="text">
        <string>Select Package</string>
@@ -394,6 +419,9 @@ border-radius: 5px;</string>
         <height>151</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background:url(:/images/Magmarr.JPG)</string>
+      </property>
       <property name="frameShape">
        <enum>QFrame::Box</enum>
       </property>
@@ -401,7 +429,7 @@ border-radius: 5px;</string>
        <number>3</number>
       </property>
       <property name="text">
-       <string>Picture Goes Here</string>
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="MagmarStartLoc">
@@ -419,7 +447,7 @@ border-radius: 5px;</string>
        </font>
       </property>
       <property name="text">
-       <string>Starting Location: Paris</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;Starting Location: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff0000;&quot;&gt;Paris&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="MagmarLine1">
@@ -521,6 +549,13 @@ border-radius: 5px;</string>
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#ccccff;
+border-style: solid;
+border-color: black;
+border-width: 2px;
+border-radius: 5px;</string>
+      </property>
       <property name="text">
        <string>Select Package</string>
       </property>
@@ -557,6 +592,9 @@ border-radius: 5px;</string>
         <height>151</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background:url(:/images/Magmortar.jpg)</string>
+      </property>
       <property name="frameShape">
        <enum>QFrame::Box</enum>
       </property>
@@ -564,7 +602,7 @@ border-radius: 5px;</string>
        <number>3</number>
       </property>
       <property name="text">
-       <string>Picture Goes Here</string>
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="MagmortarStartLoc">
@@ -582,7 +620,7 @@ border-radius: 5px;</string>
        </font>
       </property>
       <property name="text">
-       <string>Starting Location: London</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Starting Location: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff0000;&quot;&gt;London&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="MagmortarLine1">
@@ -670,7 +708,19 @@ border-radius: 5px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color:#ffb399;</string>
+      <string notr="true">
+QGroupBox{
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:0.482955, y2:0, stop:0.0852273 rgba(132, 37, 57, 255), stop:0.238636 rgba(190, 128, 193, 255), stop:0.357955 rgba(242, 112, 120, 255), stop:0.539773 rgba(255, 155, 136, 255), stop:0.744318 rgba(243, 122, 235, 255), stop:0.886364 rgba(0, 23, 255, 255), stop:1 rgba(131, 51, 64, 255));
+
+border-color: rgb(255, 255, 0);
+border-width: 5px;
+border-radius: 5px;
+border-style: solid
+}
+QPushButton{
+background-color:#ffb399;
+}
+</string>
      </property>
      <property name="title">
       <string/>
@@ -683,6 +733,13 @@ border-radius: 5px;</string>
         <width>115</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#ccccff;
+border-style: solid;
+border-color: black;
+border-width: 2px;
+border-radius: 5px;</string>
       </property>
       <property name="text">
        <string>Select Package</string>
@@ -705,7 +762,7 @@ border-radius: 5px;</string>
        </font>
       </property>
       <property name="text">
-       <string>Shiny Magmar Package</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Shiny Magmar Package&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -727,7 +784,10 @@ border-radius: 5px;</string>
        <number>3</number>
       </property>
       <property name="text">
-       <string>Picture Goes Here</string>
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/images/Magmar-pic.jpg</pixmap>
       </property>
      </widget>
      <widget class="QLabel" name="ShinyMagmarStartLoc">
@@ -745,7 +805,7 @@ border-radius: 5px;</string>
        </font>
       </property>
       <property name="text">
-       <string>Starting Location: Custom</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Starting Location: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff0000;&quot;&gt;Custom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="ShinyMagmarLine1">
@@ -782,7 +842,7 @@ border-radius: 5px;</string>
        </font>
       </property>
       <property name="text">
-       <string>Number of Destinations: Custom</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Number of Destinations: Custom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="ShinyMagmarLine2">
@@ -819,7 +879,7 @@ border-radius: 5px;</string>
        </font>
       </property>
       <property name="text">
-       <string>Food Options: Custom</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Food Options: Custom&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </widget>

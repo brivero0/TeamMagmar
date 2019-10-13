@@ -22,12 +22,17 @@ databaseManger::~databaseManger(){} // Destructor
  ***************************************************************************/
 bool databaseManger::openDB()
 {
+//    const QString DB_PATH = "/Users/bryanrivero/TeamMagmar/CS1D_TEAM_MAGMAR_DB.db"; // "CS1D_TEAM_MAGMAR_DB.db"
+
     // If database is already opened, skip creation and connection process
     if(!database.open())
     {
         // Create database object
         database = QSqlDatabase::addDatabase("QSQLITE");
-        // Create database connection
+
+        // Create database connection for MAC
+//        database.setDatabaseName(DB_PATH);
+        // Create database connection for PC
         database.setDatabaseName("CS1D_TEAM_MAGMAR_DB.db");
 
         // Check if database was successfully opened

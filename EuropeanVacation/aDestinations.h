@@ -8,6 +8,8 @@
 #include <QSqlError>
 #include <QDebug>
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QFile>
 
 /*!
  *\namespace Ui
@@ -26,9 +28,15 @@ public:
 
     ~aDestinations();
 
+     void loadTableList();
+
+
+private slots:
+
+     void on_addFile_clicked();
+
 private:
     Ui::aDestinations *ui;
-
     QSqlDatabase myDB; // Database object for database connection
 };
 

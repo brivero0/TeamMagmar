@@ -49,6 +49,29 @@
     <string>Admin's Destinations Widget</string>
    </property>
   </widget>
+  <widget class="QTableView" name="aDestinationOptionsTV">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>561</width>
+     <height>541</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addFile">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>80</y>
+     <width>341</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add From File</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
