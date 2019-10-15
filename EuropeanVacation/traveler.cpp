@@ -122,13 +122,13 @@ void traveler::on_SelectMagmarButton_clicked()
                   "FROM Distances");
     int size = 1;
 
-    query.exec();
+//    query.exec();
     while(query.next())
     {
        size++;
     }
-
-    if(size > 13)
+    qDebug() << size << ' ' ;
+    if(size > 11)
     {
         QMessageBox::information(this, "Sorry", "Sorry, this package is currently unavailable.", QMessageBox::Ok);
         return;
