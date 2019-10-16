@@ -17,18 +17,29 @@ public:
     ~tTravelSimulation();
 
     void loadTables();
+    void updateFoods();
 
 private slots:
     void on_exitSimulationButton_clicked();
 
     void on_endVacationButton_clicked();
 
+    void on_nextDestButton_clicked();
+
+    void on_confirmFoodButton_clicked();
+
 private:
     Ui::tTravelSimulation *ui;
     QString* destinations = nullptr;
     int* distances = nullptr;
-    int total;
-
+    QString currCity; // Name of current city being visited
+    int currDistance; // Distance from last city to current city
+    int totalDistance; // Total distance traveled in simulation thus far
+    float currCost; // Cost of meals selected at current city
+    float totalCost; // Total meal cost in simulation thus far
+    int total; // Total number of destinations for the simulation
+    int index; // Used to locate index of current city
+    QFont font; // Used to modify font attributes in QListView
 };
 
 #endif // TTRAVELSIMULATION_H

@@ -22,7 +22,15 @@ databaseManger::~databaseManger(){} // Destructor
  ***************************************************************************/
 bool databaseManger::openDB()
 {
-    const QString DB_PATH = "/Users/bryanrivero/TeamMagmar/CS1D_TEAM_MAGMAR_DB.db"; // "CS1D_TEAM_MAGMAR_DB.db"
+    // COMMENT OUT THE LINE YOU DON'T NEED BELOW.  DO NOT LEAVE BOTH
+    // UNCOMMENTED OR HAVE BOTH COMMENTED.  YOU NEED ONE OR THE OTHER
+    // DEPENDING ON YOUR SYSTEM.
+
+    // This one is for WINDOWS
+    const QString DB_PATH = "CS1D_TEAM_MAGMAR_DB.db";
+    // This one below is for MAC
+//    const QString DB_PATH = "/Users/bryanrivero/TeamMagmar/CS1D_TEAM_MAGMAR_DB.db";
+
 
     // If database is already opened, skip creation and connection process
     if(!database.open())
