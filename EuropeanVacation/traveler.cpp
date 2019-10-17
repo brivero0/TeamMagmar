@@ -128,7 +128,7 @@ void traveler::on_SelectMagmarButton_clicked()
        size++;
     }
     qDebug() << size << ' ' ;
-    if(size > 11)
+    if(size <= 11)
     {
         QMessageBox::information(this, "Sorry", "Sorry, this package is currently unavailable.", QMessageBox::Ok);
         return;

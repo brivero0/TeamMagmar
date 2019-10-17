@@ -21,6 +21,22 @@ tDestinations::~tDestinations()
     delete ui;
 }
 
+/****************************************************************************
+ * METHOD - defaaltReset
+ * --------------------------------------------------------------------------
+ * This method accesses the data base and queries it to get all entries
+ * where Paris is in the first collumn and puts them into a QTableView
+ * widget. It also dynamicly sets the size of the table to fit the data.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Populates the destination table view with all cities from
+ *          paris and the distances between them
+ ***************************************************************************/
+
 void tDestinations::tDestinations::defaultReset()
 {
     QSqlQueryModel * model = new QSqlQueryModel;

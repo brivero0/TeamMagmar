@@ -128,7 +128,7 @@ font: 16pt &quot;Times New Roman&quot;;
   <widget class="QTableView" name="tFoodOptionsTV">
    <property name="geometry">
     <rect>
-     <x>601</x>
+     <x>665</x>
      <y>236</y>
      <width>401</width>
      <height>281</height>
