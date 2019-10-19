@@ -1,10 +1,22 @@
 #include "admin.h"
 #include "ui_admin.h"
 
-// Default Constructor
-admin::admin(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::admin)
+/*****************************************************************
+ * admin::admin(QWidget *parent) : QWidget(parent),
+ *                                 ui(new Ui::admin)
+ * ---------------------------------------------------------------
+ *  admin non-default constructor
+ * ---------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      The following variables must be declared and initialized:
+ *          none
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing class instantiated
+ *****************************************************************/
+admin::admin(QWidget *parent) : //IN - QWidget parent
+             QWidget(parent),
+             ui(new Ui::admin)
 {
     ui->setupUi(this);
 
@@ -13,7 +25,18 @@ admin::admin(QWidget *parent) :
     ui->stackedWidget->insertWidget(2, &aFoods);
 }
 
-// Destructor
+/*****************************************************************
+ * admin::~admin()
+ * ---------------------------------------------------------------
+ *  admin default destructor
+ * ---------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      The following variables must be declared and initialized:
+ *          none
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing class destructed
+ *****************************************************************/
 admin::~admin()
 {
     delete ui;

@@ -62,8 +62,8 @@ void login::connectToDB()
 void login::on_loginTravelerButton_clicked()
 {
 
-    QString username;
-    QString password;
+    QString username;   //IN, CALC - username
+    QString password;   //IN, CALC - password
 
         username = ui->usernameLineEdit->text();
         password = ui->passwordLineEdit->text();
@@ -78,7 +78,6 @@ void login::on_loginTravelerButton_clicked()
         connectToDB();
         travelerWindow = new traveler();
         travelerWindow->show();
-        //this->close();
     }
     else if(username == "admin" && password == "456")
     {
@@ -90,7 +89,6 @@ void login::on_loginTravelerButton_clicked()
         connectToDB();
         adminWindow = new admin();
         adminWindow->show();
-        //this->close();
     }
     else
     {
@@ -100,13 +98,6 @@ void login::on_loginTravelerButton_clicked()
         ui -> usernameLineEdit -> setText("");
     }
 
-
-
-    /*
-    connectToDB();
-    travelerWindow = new traveler();
-    travelerWindow->show();
-    */
 }
 
 /****************************************************************************

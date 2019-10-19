@@ -1,7 +1,20 @@
 #include "aDestinations.h"
 #include "ui_aDestinations.h"
 
-//Default Constructor
+/*****************************************************************
+ * aDestinations::aDestinations(QWidget *parent) : QWidget(parent),
+ *                                       ui(new Ui::aDestinations)
+ * ---------------------------------------------------------------
+ *  non-default constructor
+ * ---------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      The following variables must be declared and initialized:
+ *          parent  : QWidget
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing class is instantiated
+ *****************************************************************/
+
 aDestinations::aDestinations(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::aDestinations)
@@ -14,21 +27,42 @@ aDestinations::aDestinations(QWidget *parent) :
 
 }
 
-//Destructor
+/*****************************************************************
+ * aDestinations::~aDestinations()
+ * ---------------------------------------------------------------
+ *  Default Destructor
+ * ---------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      The following variables must be declared and initialized:
+ *          none
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing
+ *****************************************************************/
 aDestinations::~aDestinations()
 {
     delete ui;
 }
 
-
-
+/*****************************************************************
+ * void aDestinations::on_addFile_clicked()
+ * ---------------------------------------------------------------
+ *  adds file to database
+ * ---------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      The following variables must be declared and initialized:
+ *          none
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing file is added to database
+ *****************************************************************/
 void aDestinations::on_addFile_clicked()
 {
-    QString start, end, kilometers;
-    QSqlQuery *qry = new QSqlQuery(myDB);
-    QString filter = "All File (*.*) ;; Text File (*.txt)";
-    QString file_name = QFileDialog::getOpenFileName(this,"Open A File", "C://");
-    QFile file(file_name);
+    QString start, end, kilometers; //IN, CALC - data fields for database
+    QSqlQuery *qry = new QSqlQuery(myDB); //IN, CALC - database query
+    QString filter = "All File (*.*) ;; Text File (*.txt)"; // CALC - file filter
+    QString file_name = QFileDialog::getOpenFileName(this,"Open A File", "C://"); // IN, CALC - file name
+    QFile file(file_name); // CALC - QFile input file
 
     if(!file.open(QFile::ReadOnly | QFile::Text))
     {
@@ -68,9 +102,22 @@ void aDestinations::on_addFile_clicked()
     loadTableList();
 }
 
+/*****************************************************************
+ * void aDestinations::loadTableList()
+ * ---------------------------------------------------------------
+ *  Outputs destination database in table format
+ * ---------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      The following variables must be declared and initialized:
+ *          none
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing destination database output
+ *****************************************************************/
+
 void aDestinations::loadTableList()
 {
-    QSqlQueryModel * model = new QSqlQueryModel();
+    QSqlQueryModel * model = new QSqlQueryModel(); //IN, CALC, OUT - destination databasee table
 
     model->setQuery("SELECT Start, End, Kilometers "
                     "FROM Distances "
