@@ -196,7 +196,8 @@ void aFoods::loadTableList()
 void aFoods::checkLines()
 {
     bool ok =  !((ui->foodLE->text()).trimmed().isEmpty())
-            &&  (ui->costSB->value() != 0.00);
+            &&  (ui->costSB->value() != 0.00)
+            && (ui->foodLE->text() != "MAX AMOUNT OF FOOD ITEM ADDED");
 
     ui->addFood->setEnabled(ok);
 
@@ -481,7 +482,9 @@ void aFoods::on_updateButton_clicked()
  *      ==> Returns none - prevents more than 6 food items per city
  *****************************************************************/
 void aFoods::on_cityCB_currentIndexChanged(const QString &cityName)
-{
+{   
+
+    ui->costSB->setValue(0.00);
 
     // Checks item count for city
     int itemCount = checkItems(cityName);
