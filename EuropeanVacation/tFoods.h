@@ -23,10 +23,12 @@ public:
     ~tFoods();
 
     void defaultReset();
+     //!< Loads default food table and city list
 
 
 private slots:
     void on_tCityList_currentIndexChanged(const QString &arg1);
+    //!< Traveler selects city to display onto table
 
 private:
     Ui::tFoods *ui;

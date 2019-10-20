@@ -31,6 +31,7 @@ SOURCES += \
     admin.cpp \
     login.cpp \
     databasemanger.cpp \
+    numberformatdelegate.cpp \
     traveler.cpp \
     tDestinations.cpp \
     tFoods.cpp \
@@ -48,6 +49,7 @@ HEADERS += \
     afooddialog.h \
     login.h \
     databasemanger.h \
+    numberformatdelegate.h \
     traveler.h \
     tDestinations.h \
     tFoods.h \

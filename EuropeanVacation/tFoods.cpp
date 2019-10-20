@@ -1,11 +1,15 @@
 #include "tFoods.h"
 #include "ui_tFoods.h"
+#include"numberformatdelegate.h"
 
 tFoods::tFoods(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::tFoods)
 {
     ui->setupUi(this);
+
+    // Sets the format for the price
+    ui->tFoodOptionsTV->setItemDelegateForColumn(1, new NumberFormatDelegate(this));
 
     myDB = QSqlDatabase::database();
 
@@ -17,12 +21,25 @@ tFoods::~tFoods()
     delete ui;
 }
 
+/*****************************************************************
+ * METHOD - defaultReset()
+ * --------------------------------------------------------------------------
+ * This method sets the default food table and list
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      The following variables must be declared and initialized:
+ *          none
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing - updates food table and list
+ *****************************************************************/
 void tFoods::tFoods::defaultReset()
 {
     QString start = ui->tCityList->currentText();
 
     QSqlQueryModel * model = new QSqlQueryModel();
 
+    // Gets the food name and their price for selected city
     model->setQuery("SELECT foodName, Price "
                  "FROM Food "
                  "WHERE City = '"+start+"'");
@@ -34,8 +51,9 @@ void tFoods::tFoods::defaultReset()
 
     QSqlQueryModel * list = new QSqlQueryModel();
 
+    // Gets the city in the database
     list->setQuery("SELECT DISTINCT City "
-                   "FROM Food ");
+                          "FROM Food ");
 
     ui->tCityList->setModel(list);
 
@@ -58,10 +76,24 @@ void tFoods::tFoods::defaultReset()
     ui->tFoodOptionsTV->setMaximumHeight(h);
 }
 
-
+/*****************************************************************
+ * METHOD - on_tCityList_currentIndexChanged(const QString &arg1)
+ * --------------------------------------------------------------------------
+ * This method will update the food table when user
+ * chooses a different city from city list
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      The following variables must be declared and initialized:
+ *          arg1 - name of city
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing - updates food table
+ *****************************************************************/
 void tFoods::on_tCityList_currentIndexChanged(const QString &arg1)
 {
     QSqlQueryModel * model = new QSqlQueryModel;
+
+    // Updates Table based on city selected
     model->setQuery("SELECT foodName, Price "
                     "FROM Food "
                     "WHERE City = '"+arg1+"'");
