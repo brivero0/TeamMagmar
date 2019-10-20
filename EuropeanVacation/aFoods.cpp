@@ -485,6 +485,7 @@ void aFoods::on_cityCB_currentIndexChanged(const QString &cityName)
 {   
 
     ui->costSB->setValue(0.00);
+    ui->foodLE->clear();
 
     // Checks item count for city
     int itemCount = checkItems(cityName);
