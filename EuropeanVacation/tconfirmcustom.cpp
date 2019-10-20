@@ -1,6 +1,17 @@
 #include "tconfirmcustom.h"
 #include "ui_tconfirmcustom.h"
 
+/****************************************************************************
+ * METHOD - tConfirmCustom
+ * --------------------------------------------------------------------------
+ * This method is the constructor.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      Database must exist and be open.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 tConfirmCustom::tConfirmCustom(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::tConfirmCustom)
@@ -14,11 +25,34 @@ tConfirmCustom::tConfirmCustom(QWidget *parent) :
     ui->startSimulationButton->setEnabled(false);
 }
 
+/****************************************************************************
+ * METHOD - ~tConfirmCustom
+ * --------------------------------------------------------------------------
+ * This method is the desconstructor.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 tConfirmCustom::~tConfirmCustom()
 {
     delete ui;
 }
 
+/****************************************************************************
+ * METHOD - defaultListView
+ * --------------------------------------------------------------------------
+ * This method sets the default view for the availDestListWidget using
+ * values from the database.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      Database must exist and be open.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tConfirmCustom::defaultListView()
 {
     QString cityName; // Place holder for setting up List
@@ -44,6 +78,18 @@ void tConfirmCustom::defaultListView()
     }
 }
 
+/****************************************************************************
+ * METHOD - defaultView
+ * --------------------------------------------------------------------------
+ * This method sets the default view the window.  It enables and disables
+ * buttons.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      Database must exist and be open.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tConfirmCustom::defaultView()
 {
     ui->confirmListWidget->clear();
@@ -54,6 +100,24 @@ void tConfirmCustom::defaultView()
     customList.clear();
 }
 
+/****************************************************************************
+ * METHOD - sortList
+ * --------------------------------------------------------------------------
+ * This method sorts the selected cities saved in customList and creates
+ * the new sorted list of selected destinations.  The sort uses the
+ * starting city and finds the next closest city to it that is in
+ * the customList.  After saving the closest city into the sorted list, it
+ * becomes the new start city and the next closest city if found that is
+ * in the customList.  No city can be listed twice in the new sorted list.
+ * The distance list is also updated using the distance between the
+ * starting city and closest city.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      Database must exist and be open.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tConfirmCustom::sortList()
 {
     QString temp; // used as temporary storage while swapping
@@ -114,7 +178,6 @@ void tConfirmCustom::sortList()
                               //        city in the array.
         int  j = i;           // CALC - used to check the remaining array
                               //        for closestCity not yet sorted
-
 
         // Create query for list of cities closest to the startCity in order
         // by distance.
@@ -194,6 +257,18 @@ void tConfirmCustom::sortList()
     sortedDistance[cityNum-1] = qry.value(2).toInt();
 }
 
+/****************************************************************************
+ * METHOD - on_resetSelectionButton_clicked
+ * --------------------------------------------------------------------------
+ * This method resets values when the selection button is pressed.  Buttons,
+ * windows, and lists are reset.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      None.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tConfirmCustom::on_resetSelectionButton_clicked()
 {
     ui->availDestListWidget->reset();
@@ -202,16 +277,30 @@ void tConfirmCustom::on_resetSelectionButton_clicked()
     ui->startSimulationButton->setEnabled(false);
 }
 
+/****************************************************************************
+ * METHOD - on_confirmSelectionButon_clicked
+ * --------------------------------------------------------------------------
+ * This method changes to a different widget view so the traveler can
+ * view their selected destinations and select a starting city.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      None.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tConfirmCustom::on_confirmSelectionButon_clicked()
 {
     // Stores selected items from availDestListWidget into customList
     customList = ui->availDestListWidget->selectedItems();
     cityNum = customList.count();
 
+    // Must have at least two cities selected to be valid
     if(cityNum >= 2)
     {
         ui->startCityComboBox->addItem(" ");
 
+        // Load list and combo box with selected cities
         for(int i = 0; i < cityNum; i++)
         {
             ui->confirmListWidget->addItem(customList.at(i)->text());
@@ -220,6 +309,7 @@ void tConfirmCustom::on_confirmSelectionButon_clicked()
                      << " , row number id " << ui->availDestListWidget->row(customList.at(i));
         }
 
+        // Update button and widget
         ui->confirmSelectionButon->setEnabled(false);
         ui->availDestListWidget->setEnabled(false);
         ui->confirmListWidget->setEnabled(true);
@@ -227,6 +317,17 @@ void tConfirmCustom::on_confirmSelectionButon_clicked()
     }
 }
 
+/****************************************************************************
+ * METHOD - on_startCityComboBox_currentIndexChanged
+ * --------------------------------------------------------------------------
+ * This method updates buttons when a valid starting city is selected.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      None.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tConfirmCustom::on_startCityComboBox_currentIndexChanged(int index)
 {
     if(index != 0)
@@ -240,11 +341,26 @@ void tConfirmCustom::on_startCityComboBox_currentIndexChanged(int index)
     }
 }
 
+/****************************************************************************
+ * METHOD - on_startSimulationButton_clicked
+ * --------------------------------------------------------------------------
+ * This method opens the simulation window and closes this window when
+ * the simulation button is clicked.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      sortedDestinations: the list of selected destinations sorted
+ *      sortedDistance:     the list of selected destination distances
+ *      cityNum:            the number of selected cities
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tConfirmCustom::on_startSimulationButton_clicked()
 {
     sortList();
 
-    tTravelSimulationWindow = new tTravelSimulation(sortedDestinations, sortedDistance, cityNum);
+    tTravelSimulationWindow = new tTravelSimulation(sortedDestinations,
+                                                    sortedDistance, cityNum);
     tTravelSimulationWindow->show();
 
     sortedDestinations = nullptr;
@@ -253,6 +369,17 @@ void tConfirmCustom::on_startSimulationButton_clicked()
     this->close();
 }
 
+/****************************************************************************
+ * METHOD - on_cancelButton_clicked
+ * --------------------------------------------------------------------------
+ * This method closes this window when cancel button is clicked.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      None.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tConfirmCustom::on_cancelButton_clicked()
 {
     this->close();

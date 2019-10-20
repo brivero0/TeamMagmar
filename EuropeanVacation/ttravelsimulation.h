@@ -13,33 +13,47 @@ class tTravelSimulation : public QWidget
 
 public:
     explicit tTravelSimulation(QWidget *parent = nullptr);
-    explicit tTravelSimulation(QString* cList, int* dList, int, QWidget *parent = nullptr);
+    //!< Default Constructor
+
+    explicit tTravelSimulation(QString* cList, int* dList, int,
+                               QWidget *parent = nullptr);
+    //!< Constructor (using passed in parameters)
+
     ~tTravelSimulation();
+    //!< Destructor
 
     void loadTables();
+    //!< Loads destination list with starting values
+
     void updateFoods();
+    //!< Updates food table with values for current city active
 
 private slots:
     void on_exitSimulationButton_clicked();
+    //!< Opens messagebox and then closes simulation at any time
 
     void on_endVacationButton_clicked();
+    //!< Closes this window after simulation is all done
 
     void on_nextDestButton_clicked();
+    //!< Sets up view for next destination
 
     void on_confirmFoodButton_clicked();
+    //!< Creates subtotal for foods of current city
 
 private:
-    Ui::tTravelSimulation *ui;
+    Ui::tTravelSimulation *ui;  /*!< class object */
     QString* destinations = nullptr;
-    int* distances = nullptr;
-    QString currCity; // Name of current city being visited
-    int currDistance; // Distance from last city to current city
-    int totalDistance; // Total distance traveled in simulation thus far
-    float currCost; // Cost of meals selected at current city
-    float totalCost; // Total meal cost in simulation thus far
-    int total; // Total number of destinations for the simulation
-    int index; // Used to locate index of current city
-    QFont font; // Used to modify font attributes in QListView
+                                /*!< Pointer for dynamic destination list */
+    int* distances = nullptr;   /*!< Pointer for dynamic distance list*/
+    QString currCity;           /*!< Current city being visited */
+    int currDistance;           /*!< Distance from last to current city */
+    int totalDistance;          /*!< Total distance traveled thus far */
+    float currCost;             /*!< Cost of meals at current city */
+    float totalCost;            /*!< Meal cost in simulation thus far */
+    int total;                  /*!< Number of destinations for simulation */
+    int index;                  /*!< Used to locate index of current city */
+    QFont font;                 /*!< Modified font attributes in QListView */
 };
 
 #endif // TTRAVELSIMULATION_H

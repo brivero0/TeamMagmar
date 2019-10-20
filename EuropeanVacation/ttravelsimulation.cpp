@@ -4,6 +4,17 @@
 #include <QMessageBox>
 #include <QSpinBox> // Needed for spinbox object in QTableWidget
 
+/****************************************************************************
+ * METHOD - tTravelSimulation
+ * --------------------------------------------------------------------------
+ * This method is a default constructor
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      None.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 tTravelSimulation::tTravelSimulation(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::tTravelSimulation)
@@ -11,9 +22,23 @@ tTravelSimulation::tTravelSimulation(QWidget *parent) :
     ui->setupUi(this);
 }
 
-tTravelSimulation::tTravelSimulation(QString* cList, int* dList, int t, QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::tTravelSimulation), destinations(cList), distances(dList), total(t)
+/****************************************************************************
+ * METHOD - tTravelSimulation
+ * --------------------------------------------------------------------------
+ * This method is a contructor that uses passed parameters.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      *cList: the list of selected destinations sorted
+ *      *dList: the list of selected destination distances
+ *      t:      the number of selected cities
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
+tTravelSimulation::tTravelSimulation(QString* cList, int* dList, int t,
+                                     QWidget *parent) :
+    QWidget(parent), ui(new Ui::tTravelSimulation), destinations(cList),
+    distances(dList), total(t)
 {
     ui->setupUi(this);
 
@@ -28,23 +53,49 @@ tTravelSimulation::tTravelSimulation(QString* cList, int* dList, int t, QWidget 
     ui->currDestCostLine->setText(QString::number(currCost));
 
     tTravelSimulation::loadTables();
+    ui->endVacationButton->setEnabled(false);
+    ui->goodbyeLabel->setVisible(false);
 }
 
+/****************************************************************************
+ * METHOD - tTravelSimulation
+ * --------------------------------------------------------------------------
+ * This method is the destructor
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      None.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 tTravelSimulation::~tTravelSimulation()
 {
     delete ui;
 }
 
+/****************************************************************************
+ * METHOD - loadTables
+ * --------------------------------------------------------------------------
+ * This method loads the destinations into the list view and sets default
+ * starting view.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      None.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tTravelSimulation::loadTables()
 {
+    // Load all cities into list view
     for(int i = 0; i < total; i++)
     {
 //      qDebug() << sortedDestinations[i] << ' ' << sortedDistance[i];
         qDebug() << "Total: " << total;
         ui->destinationWidget->addItem(destinations[i]);
-        ui->listWidget_2->addItem(QString::number(distances[i]));
     }
 
+    // Set colors
     font.setBold(true);
     ui->destinationWidget->item(index)->setFont(font);
     ui->destinationWidget->item(index)->setForeground(Qt::yellow);
@@ -53,6 +104,18 @@ void tTravelSimulation::loadTables()
     updateFoods();
 }
 
+/****************************************************************************
+ * METHOD - updateFoods
+ * --------------------------------------------------------------------------
+ * This method updates the food table view using values from the database
+ * for the active city.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      Database must exist and be open.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tTravelSimulation::updateFoods()
 {
     int row = 0;        // CALC - Used to count rows for displaying to table
@@ -146,18 +209,54 @@ void tTravelSimulation::updateFoods()
     ui->nextDestButton->setEnabled(false);
 }
 
+/****************************************************************************
+ * METHOD - on_exitSimulationButton_clicked
+ * --------------------------------------------------------------------------
+ * This method allows traveler to exit in the middle of the simulation.
+ * It opens a message box then closes this object
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      None.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tTravelSimulation::on_exitSimulationButton_clicked()
 {
-    QMessageBox::information(this,"Cancel","Sad to see you go!", QMessageBox::Ok);
+    QMessageBox::information(this,"Cancel","Sad to see you go!",
+                             QMessageBox::Ok);
 
     this->close();
 }
 
+/****************************************************************************
+ * METHOD - on_endVacationButton_clicked
+ * --------------------------------------------------------------------------
+ * This method ends the simulation upon completion of the travel
+ * simulation.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      None.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tTravelSimulation::on_endVacationButton_clicked()
 {
     this->close();
 }
 
+/****************************************************************************
+ * METHOD - on_nextDestButton_clicked
+ * --------------------------------------------------------------------------
+ * This method updates view for the next destination in the list.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      None.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tTravelSimulation::on_nextDestButton_clicked()
 {
     /************************************************************************
@@ -195,9 +294,39 @@ void tTravelSimulation::on_nextDestButton_clicked()
         // Reset values
         ui->currDestCostLine->clear();
         ui->nextDestButton->setEnabled(false);
+        if(index+1 >= total)
+        {
+            ui->nextDestButton->setText("End Vacation");
+        }
+    }
+    else
+    {
+        // Updates cost lines
+        totalCost = totalCost + currCost;
+        ui->totalCostLine->setText(QString::number(totalCost));
+
+        // Reset values
+        ui->currDestCostLine->clear();
+        ui->nextDestButton->setEnabled(false);
+
+        ui->endVacationButton->setEnabled(true);
+        ui->goodbyeLabel->setVisible(true);
+        ui->exitSimulationButton->setEnabled(false);
     }
 }
 
+/****************************************************************************
+ * METHOD - on_confirmFoodButton_clicked
+ * --------------------------------------------------------------------------
+ * This method generates the subtotal for the selected food items for the
+ * current city.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      None.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tTravelSimulation::on_confirmFoodButton_clicked()
 {
     int i = 0;
@@ -207,7 +336,6 @@ void tTravelSimulation::on_confirmFoodButton_clicked()
 
     while(i < ui->foodTableWidget->rowCount())
     {
-//        itemQty = ui->foodTableWidget->item(i,0)->text().toInt();
         itemQty = ui->foodTableWidget->cellWidget(i,0)->property("value").value<int>();
         itemPrice = (ui->foodTableWidget->item(i,2)->text()).toFloat();
         currCost = currCost + (itemQty * itemPrice);
