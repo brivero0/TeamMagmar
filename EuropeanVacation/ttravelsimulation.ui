@@ -301,9 +301,9 @@ border-radius: 5px;</string>
    <widget class="QLineEdit" name="totalDistLine">
     <property name="geometry">
      <rect>
-      <x>65</x>
+      <x>50</x>
       <y>30</y>
-      <width>90</width>
+      <width>80</width>
       <height>25</height>
      </rect>
     </property>
@@ -348,9 +348,9 @@ border-radius: 5px;</string>
    <widget class="QLineEdit" name="totalCostLine">
     <property name="geometry">
      <rect>
-      <x>65</x>
+      <x>50</x>
       <y>85</y>
-      <width>90</width>
+      <width>80</width>
       <height>25</height>
      </rect>
     </property>
@@ -367,6 +367,32 @@ border-radius: 5px;</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>135</x>
+      <y>40</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>kilometers</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>135</x>
+      <y>90</y>
+      <width>71</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>US dollars</string>
     </property>
    </widget>
   </widget>
