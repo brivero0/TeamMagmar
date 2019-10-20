@@ -17,12 +17,16 @@ public:
 
 private slots:
     void on_noButton_clicked();
+    //!< Cancels food item deletion
+    /*!< POST: Returns the code as false*/
 
     void on_yesButton_clicked();
+    //!< Confirms food item deletion
+    /*!< POST: Returns execution of dialog box as true*/
 
 private:
     Ui::aFoodDialog *ui;
-    QString foodName;
+    QString foodName;       // IN & OUT - Name of the food being removed from the database
 };
 
 #endif // AFOODDIALOG_H
