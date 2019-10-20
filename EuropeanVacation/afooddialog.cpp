@@ -20,12 +20,37 @@ aFoodDialog::~aFoodDialog()
     delete ui;
 }
 
-
+/*****************************************************************
+ * METHOD - on_noButton_clicked()
+ * --------------------------------------------------------------------------
+ * This method will return the dialog box as false
+ * and close it
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      The following variables must be declared and initialized:
+ *          none
+ *
+ * POST-CONDITIONS
+ *      ==> Returns none - closes the dialog box
+ *****************************************************************/
 void aFoodDialog::on_noButton_clicked()
 {
     reject();
 }
 
+/*****************************************************************
+ * METHOD - on_yesButton_clicked()
+ * --------------------------------------------------------------------------
+ * This method will return the dialog box as true
+ * and close it
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      The following variables must be declared and initialized:
+ *          none
+ *
+ * POST-CONDITIONS
+ *      ==> Returns none - closes the dialog box
+ *****************************************************************/
 void aFoodDialog::on_yesButton_clicked()
 {
     accept();

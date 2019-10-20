@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>488</width>
-    <height>269</height>
+    <height>250</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -19,13 +19,13 @@
   <property name="windowTitle">
    <string>Delete Food Item</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>30</y>
+     <y>20</y>
      <width>371</width>
-     <height>201</height>
+     <height>211</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
