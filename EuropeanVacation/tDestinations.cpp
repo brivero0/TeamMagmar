@@ -3,7 +3,17 @@
 #include <QSqlQuery>
 #include <QSql>
 
-// Default Constructor
+/****************************************************************************
+ * METHOD - tConfirmCustom
+ * --------------------------------------------------------------------------
+ * This method is the constructor.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      Database must exist and be open.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 tDestinations::tDestinations(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::tDestinations)
@@ -15,14 +25,24 @@ tDestinations::tDestinations(QWidget *parent) :
     defaultReset();
 }
 
-// Destructor
+/****************************************************************************
+ * METHOD - tConfirmCustom
+ * --------------------------------------------------------------------------
+ * This method is the destructor.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      Database must exist and be open.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 tDestinations::~tDestinations()
 {
     delete ui;
 }
 
 /****************************************************************************
- * METHOD - defaaltReset
+ * METHOD - defaltReset
  * --------------------------------------------------------------------------
  * This method accesses the data base and queries it to get all entries
  * where Paris is in the first collumn and puts them into a QTableView
@@ -36,7 +56,6 @@ tDestinations::~tDestinations()
  *      ==> Populates the destination table view with all cities from
  *          paris and the distances between them
  ***************************************************************************/
-
 void tDestinations::tDestinations::defaultReset()
 {
     QSqlQueryModel * model = new QSqlQueryModel;

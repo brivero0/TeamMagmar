@@ -19,15 +19,19 @@ class tDestinations : public QWidget
 public:
 
     explicit tDestinations(QWidget *parent = nullptr);
+    //!< Constructor
+
     ~tDestinations();
+    //! Destructor
 
     void defaultReset();
+    //!< initializes the QTableWidget and loads with data from a database query
 
 private:
-    Ui::tDestinations *ui;
-    QString startCity = "Paris";
+    Ui::tDestinations *ui;          /*!< class object */
+    QString startCity = "Paris";    /*!< QString for the database query */
 
-    QSqlDatabase myDB; // Database object for database connection
+    QSqlDatabase myDB;              /*!< database connection */
 };
 
 #endif // TDESTINATIONS_H

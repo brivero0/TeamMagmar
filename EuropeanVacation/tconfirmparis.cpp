@@ -4,18 +4,41 @@
 #include <QSqlQuery>
 #include <QSql>
 
+/****************************************************************************
+ * METHOD - tConfirmParis
+ * --------------------------------------------------------------------------
+ * This method is the constructor.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      Database must exist and be open.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 tConfirmParis::tConfirmParis(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::tConfirmParis)
 {
     ui->setupUi(this);
     myDB = QSqlDatabase::database();
-//    generateList();
 }
 
+/****************************************************************************
+ * METHOD - tConfirmCustom
+ * --------------------------------------------------------------------------
+ * This method is the deconstructor.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      Database must exist and be open.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 tConfirmParis::~tConfirmParis()
 {
     delete ui;
+    delete sortedDistance;
+    delete sortedDestinations;
 }
 
 /****************************************************************************
@@ -25,14 +48,13 @@ tConfirmParis::~tConfirmParis()
  * and sortedDistance.
  * --------------------------------------------------------------------------
  * PRE-CONDITIONS
- *      ==> An integer representing
+ *      None.
  *
  * POST-CONDITIONS
  *      ==> Returns nothing.
  *      ==> Sets cityNum equal to total
  *      ==> Initializes 2 dynamic arrays of size cityNum
  ***************************************************************************/
-
 void tConfirmParis::getCityNum(int total)
 {
     cityNum = total;
@@ -49,6 +71,7 @@ void tConfirmParis::getCityNum(int total)
  * puts them into a Qlist.
  * --------------------------------------------------------------------------
  * PRE-CONDITIONS
+ *      Database must exist and be open
  *      No parameters are required.
  *
  * POST-CONDITIONS
@@ -106,7 +129,7 @@ void tConfirmParis::generateList()
     }
 
     /************************************************************************
-     * PROCESS: Copy contents of sortedDestinations into cityList,
+     * PROCESS: Copies contents of sortedDestinations into cityList,
      *          a QListWidget.
      ***********************************************************************/
     for(int i = 0; i < cityNum; i++)
@@ -116,6 +139,21 @@ void tConfirmParis::generateList()
     }
 }
 
+
+/****************************************************************************
+ * METHOD - on_startSimulationButton_clicked
+ * --------------------------------------------------------------------------
+ * This method opens the simulation window and closes this window when
+ * the simulation button is clicked.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      sortedDestinations: the list of selected destinations sorted
+ *      sortedDistance:     the list of selected destination distances
+ *      cityNum:            the number of selected cities
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tConfirmParis::on_startSimulationBtn1_clicked()
 {
     tTravelSimulationWindow1 = new tTravelSimulation(sortedDestinations, sortedDistance, cityNum);
@@ -123,6 +161,17 @@ void tConfirmParis::on_startSimulationBtn1_clicked()
     this->close();
 }
 
+/****************************************************************************
+ * METHOD - on_cancelButton_clicked
+ * --------------------------------------------------------------------------
+ * This method closes this window when cancel button is clicked.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      None.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ ***************************************************************************/
 void tConfirmParis::on_cancelButton_clicked()
 {
     this->close();
