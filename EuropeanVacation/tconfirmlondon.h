@@ -29,10 +29,14 @@ public:
 
 private slots:
     void on_startSimulationButton_clicked();
+        //!< Traveler simulation window opens
 
     void on_cancelButton_clicked();
+        //!< London confirmation window closes
 
     void on_numCitiesSpinBox_valueChanged();
+        //!< Funtion that updates the number of cities the traveler is visiting based on
+        //! spin box value.
 
 private:
     Ui::tConfirmLondon *ui;

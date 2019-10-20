@@ -36,12 +36,16 @@ private slots:
     //!< Traveler window closes
 
     void on_SelectMagbyButton_clicked();
+        //!< Paris 11 confirmation window opens
 
     void on_SelectMagmarButton_clicked();
+        //!< Paris 13 confirmation window opens
 
     void on_SelectMagmortarButton_clicked();
+        //!< London confirmation window opens
 
     void on_SelectShinyMagmarButton_clicked();
+        //!< Custom confirmation window opens
 
 private:
     Ui::traveler*ui;

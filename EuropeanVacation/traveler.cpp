@@ -104,6 +104,20 @@ void traveler::on_logoutButton_clicked()
     this->close();
 }
 
+/****************************************************************************
+ * METHOD - on_SelectMagbyButton_clicked
+ * --------------------------------------------------------------------------
+ * When the Select Magby Button is clicked, a new widget window opens up
+ * and the traveler is taken to the Paris 11 confirmation screen.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Displays Confirmation Screen for Paris 11 Available QWidget
+ ***************************************************************************/
+
 void traveler::on_SelectMagbyButton_clicked()
 {
     int total = 11;
@@ -113,6 +127,22 @@ void traveler::on_SelectMagbyButton_clicked()
     tConfirmWindow->show();
 
 }
+
+/****************************************************************************
+ * METHOD - on_SelectMagmarButton_clicked
+ * --------------------------------------------------------------------------
+ * When the Select Magmar Button is clicked, a new widget window opens up
+ * and the traveler is taken to the Paris 13 confirmation screen.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      Num of cities must be determined, need at least 13 cities in our database
+ *      before this button will take the traveler to the confirmation screen.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Displays Confirmation Screen for Paris 13 Available QWidget
+ ***************************************************************************/
+
 
 void traveler::on_SelectMagmarButton_clicked()
 {
@@ -143,11 +173,39 @@ void traveler::on_SelectMagmarButton_clicked()
     }
 }
 
+/****************************************************************************
+ * METHOD - on_SelectMagmotarButton_clicked
+ * --------------------------------------------------------------------------
+ * When the Select Magmotar Button is clicked, a new widget window opens up
+ * and the traveler is taken to the London confirmation screen.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Displays Confirmation Screen for London Available QWidget
+ ***************************************************************************/
+
 void traveler::on_SelectMagmortarButton_clicked()
 {
     tConfirmWindow2 = new tConfirmLondon();
     tConfirmWindow2->show();
 }
+
+/****************************************************************************
+ * METHOD - on_SelectShinyMagmarButton_clicked
+ * --------------------------------------------------------------------------
+ * When the Select Shiny Magmar Button is clicked, a new widget window opens up
+ * and the traveler is taken to the custom confirmation screen.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      No parameters are required.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Displays Confirmation Screen for custom Available QWidget
+ ***************************************************************************/
 
 void traveler::on_SelectShinyMagmarButton_clicked()
 {

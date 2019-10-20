@@ -2,6 +2,21 @@
 #include "ui_tconfirmlondon.h"
 #include "ttravelsimulation.h"
 
+/****************************************************************************
+ * Constructor - tConfirmLondon
+ * --------------------------------------------------------------------------
+ * When this window opens, the constructor determines how many cities are currently in the
+ * database and sets the maximum value of the spin box to the # of cities in the DB. It
+ * also sets the minimum value to 2 (since 2 cities are required for travel). It also
+ * sets the starting city in London.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *     Database has cities to do a row count.
+ *
+ * POST-CONDITIONS
+ *      ==> Spin box values are populated based on # of cities in DB.
+ ***************************************************************************/
+
 tConfirmLondon::tConfirmLondon(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::tConfirmLondon)
@@ -30,11 +45,38 @@ tConfirmLondon::tConfirmLondon(QWidget *parent) :
 
 }
 
+/****************************************************************************
+ * Destructor - tConfirmLondon
+ * --------------------------------------------------------------------------
+ * Deletes ui
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *     None
+ *
+ * POST-CONDITIONS
+ *      ==> Deletes ui
+ ***************************************************************************/
+
 tConfirmLondon::~tConfirmLondon()
 {
     delete ui;
 }
 
+/****************************************************************************
+ * METHOD - on_startSimulationButton_clicked
+ * --------------------------------------------------------------------------
+ * When this button is clicked, the travel simulation window opens and populates
+ * cities and distances between each city based on the cities selected in the
+ * london window.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *      Cities, distances and the number of cities selected will be passed to the
+ *      travel simuation.
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Displays Travel Simulation Window
+ ***************************************************************************/
 void tConfirmLondon::on_startSimulationButton_clicked()
 {
     tTravelSimulationWindow1 = new tTravelSimulation(p,d,number);
@@ -46,11 +88,39 @@ void tConfirmLondon::on_startSimulationButton_clicked()
 
 }
 
+/****************************************************************************
+ * METHOD - on_cancelButton_clicked
+ * --------------------------------------------------------------------------
+ * When this button is clicked, the confirmation window closes.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *     None
+ *
+ * POST-CONDITIONS
+ *      ==> Returns nothing.
+ *      ==> Closes window
+ ***************************************************************************/
+
 void tConfirmLondon::on_cancelButton_clicked()
 {
     this->close();
 }
 
+
+/****************************************************************************
+ * METHOD - on_numCitiesSpinBox_valueChanged()
+ * --------------------------------------------------------------------------
+ * When the spinbox value changes, this function will update the number of cities
+ * included in the trip.
+ * --------------------------------------------------------------------------
+ * PRE-CONDITIONS
+ *     None
+ *
+ * POST-CONDITIONS
+ *      ==> Updates the number of cities included in the trip, and stores the cities and their
+ *      distances in a dynamic array (to pass to travel simulation).
+ *
+ ***************************************************************************/
 void tConfirmLondon::on_numCitiesSpinBox_valueChanged()
 {
 
