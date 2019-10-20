@@ -120,15 +120,15 @@ void traveler::on_SelectMagmarButton_clicked()
     QSqlQuery query;
     query.prepare("SELECT *"
                   "FROM Distances");
-    int size = 1;
+    int size = 0;
 
-//    query.exec();
+    query.exec();
     while(query.next())
     {
        size++;
     }
     qDebug() << size << ' ' ;
-    if(size <= 11)
+    if(size < 156)
     {
         QMessageBox::information(this, "Sorry", "Sorry, this package is currently unavailable.", QMessageBox::Ok);
         return;
