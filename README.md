@@ -1,6 +1,6 @@
 # TeamMagmar
 
-##**CS1D European vacation**
+## D European vacation
 
 ![alt text](https://i.postimg.cc/vTZDYTky/magmar.png)
 
